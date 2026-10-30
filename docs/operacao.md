@@ -21,6 +21,22 @@ Nada a fazer. Na segunda-feira:
 - A página do podcast (`https://volmarsegundo-source.github.io/radar-ia/`) mostra o episódio com player e notas.
 - O documento escrito, com todos os links, fica na lista de artefatos do Claude.
 
+## Verificar a automação
+
+Estado em 30/10/2026: workflow, Release, feed e páginas validados com o episódio 1; a tarefa agendada ainda não rodou sozinha. Na segunda-feira, depois das 8h13:
+
+1. Notificação da tarefa chegou e o documento escrito foi publicado (artefatos do Claude).
+2. Repositório: existe a pasta `episodes/AAAA-MM-DD` com `roteiro.txt` e `notas.md` e o commit `Episódio AAAA-MM-DD` na `main`.
+3. Actions: a execução de "Gerar episódio e publicar feed" terminou com ✓ (3 a 5 minutos). Se ficar em "Waiting", aprove o ambiente `github-pages`.
+4. Releases: existe `ep-AAAA-MM-DD` com o MP3 (cerca de 9 MB).
+5. A página e o `feed.xml` mostram o episódio; no app Podcasts, puxe a tela para atualizar.
+
+Se algo falhar, veja "Solução de problemas". Para repetir a tarefa fora do horário, peça ao Claude para executá-la; se a pasta do dia já existir, use o marcador `refazer`.
+
+## Novo podcast com o mesmo pipeline
+
+`docs/prompt-novo-podcast.md` traz um prompt pronto para criar outro podcast (outro repositório, feed, escopo e tarefa agendada), reaproveitando os scripts deste repositório.
+
 ## Compartilhar com colegas
 
 - **Link da página do podcast** (`https://volmarsegundo-source.github.io/radar-ia/`) ou da página de um episódio (`.../ep/ep-AAAA-MM-DD/`): abre no navegador com player, notas e links, e tem os botões Assinar e Compartilhar. Funciona bem no WhatsApp e no Teams (com prévia da capa).
@@ -57,6 +73,9 @@ CAMILA: E eu sou a Camila. Um aviso rápido: nós dois somos apresentadores virt
 
 # Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
 RAFA: ...
+
+# Fechamento — O que levar para os clientes
+CAMILA: Insight para levar ao cliente: ...
 ```
 
 - Cada fala fica numa linha que começa com `RAFA: ` ou `CAMILA: `, com linha em branco entre falas.

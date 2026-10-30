@@ -22,7 +22,9 @@ Toda segunda-feira às 8h13 (horário de São Paulo) uma tarefa agendada do Clau
 |---|---|
 | Tarefa agendada "Resumo semanal de IA e tecnologia" | Ativa, segundas 8h13 (America/Sao_Paulo) |
 | Geração de áudio (Google Cloud TTS, Chirp 3 HD, duas vozes) | Funcionando; validada em formato conversa |
-| Publicação (Releases + GitHub Pages) | Funcionando |
+| Publicação (Releases + GitHub Pages) | Funcionando; republica em qualquer push em `episodes/`, `scripts/`, `assets/` ou no workflow |
+| Refazer episódio | Marcador `episodes/AAAA-MM-DD/refazer` (o workflow apaga a Release e a tag e regera o áudio) |
+| Primeira execução automática da tarefa agendada | Pendente: segunda, 02/11/2026, 8h13 (ver "Verificar a automação" em `docs/operacao.md`) |
 | Episódios | `2026-10-30` (episódio 1, formato conversa com insights para clientes); o primeiro automático sai em 02/11/2026 |
 | Página web do podcast | Player, assinar (Apple Podcasts, Pocket Casts, Overcast), compartilhar (WhatsApp, e-mail, link) e uma página por episódio |
 
@@ -32,6 +34,7 @@ Toda segunda-feira às 8h13 (horário de São Paulo) uma tarefa agendada do Clau
 |---|---|
 | [`docs/arquitetura.md`](docs/arquitetura.md) | Componentes, fluxo de dados, decisões e alternativas descartadas, limites |
 | [`docs/operacao.md`](docs/operacao.md) | Configuração inicial, uso no iPhone/Watch, formato do roteiro, ajustes, solução de problemas, custos |
+| [`docs/prompt-novo-podcast.md`](docs/prompt-novo-podcast.md) | Prompt para criar outro podcast com o mesmo pipeline e outro escopo |
 | [`CLAUDE.md`](CLAUDE.md) | Guia para o Claude: regras do projeto, formato do episódio e limitações do ambiente |
 
 ## Visão geral
@@ -55,7 +58,7 @@ scripts/tts.py                   roteiro (diálogo) → MP3 (Google TTS, duas vo
 scripts/build_feed.py            Releases → feed.xml (notas em HTML) + página do podcast e páginas dos episódios
 assets/cover.png                 capa do podcast (1400×1400)
 episodes/AAAA-MM-DD/             um diretório por episódio (roteiro.txt, notas.md)
-docs/                            documentação
+docs/                            documentação (arquitetura, operação, prompt para novo podcast)
 CLAUDE.md                        guia para o Claude
 ```
 
@@ -69,6 +72,9 @@ CAMILA: fala da Camila, numa linha.
 
 # Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
 RAFA: ...
+
+# Fechamento — O que levar para os clientes
+CAMILA: ...
 ```
 
 Linhas com `# ` marcam a mudança de bloco (não são faladas; geram uma pausa longa). Detalhes em [`docs/operacao.md`](docs/operacao.md).

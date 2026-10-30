@@ -2,7 +2,7 @@
 
 Podcast semanal pessoal do Volmar (São Paulo, comunica-se em português). Toda segunda às 8h13 (America/Sao_Paulo) uma tarefa agendada do Claude pesquisa as notícias de IA da semana, publica um documento escrito e envia ao repositório o roteiro do episódio: uma conversa de ~18 minutos entre dois apresentadores virtuais (Rafa e Camila), em dois blocos (visão geral da IA e aprofundamento em engenharia de software e arquitetura empresarial). O programa é um treinamento para os executive partners, colegas do Volmar, entregarem valor aos clientes: por isso a conversa marca os insights para levar aos clientes. O resto é automático.
 
-Documentação completa: `README.md` (visão geral e status), `docs/arquitetura.md` (componentes, decisões, limites) e `docs/operacao.md` (configuração, ajustes, solução de problemas, custos). Ao mudar o pipeline, atualize esses arquivos no mesmo commit.
+Documentação completa: `README.md` (visão geral e status), `docs/arquitetura.md` (componentes, decisões, limites), `docs/operacao.md` (configuração, ajustes, verificação da automação, solução de problemas, custos) e `docs/prompt-novo-podcast.md` (prompt para criar outro podcast com este pipeline). Ao mudar o pipeline, atualize esses arquivos no mesmo commit.
 
 ## Fluxo
 

@@ -70,12 +70,18 @@ O app Podcasts não tem página web própria para um feed privado, então `build
 
 O repositório e o site são públicos (Pages gratuito exige repositório público). O feed tem `itunes:block` e as páginas têm `noindex`, para não aparecer em diretórios nem em buscadores, mas qualquer pessoa com o endereço pode acessá-los. O conteúdo são notícias públicas; nada confidencial deve entrar aqui.
 
+## Reutilização
+
+O pipeline é independente do assunto: o que muda entre podcasts é o título e a descrição (`SHOW_TITLE`, `SHOW_DESC`, `AUTHOR` em `build_feed.py`), os rótulos e vozes dos locutores (`tts.py` e variáveis `TTS_VOICE_*`), a capa e o prompt da tarefa agendada. O roteiro de criação de um novo podcast está em `docs/prompt-novo-podcast.md`. Cada podcast usa um repositório, um feed e uma tarefa agendada próprios; a cota gratuita do Google TTS é compartilhada entre eles quando usam a mesma chave.
+
 ## Limites e restrições conhecidos
 
 - A sessão do Claude só acessa o repositório depois de `add_repo` (owner `volmarsegundo-source`, repo `radar-ia`, acesso `push`). Não cria repositórios, não ativa o Pages e não dispara workflows pela API; só o push dispara.
 - A sessão do Claude não alcança `github.io` nem `cloudfront.net`; a conferência do feed é feita pelo usuário no navegador.
 - Limite de 5.000 bytes por requisição do Google TTS (falas maiores são divididas por frase). Cada fala é uma requisição; o script repete automaticamente em caso de limite de taxa (HTTP 429) ou erro transitório do servidor.
 - As vozes são sintéticas e não interrompem uma à outra; a naturalidade depende do texto do roteiro (frases curtas, pronúncia escrita por extenso).
-- Um episódio já publicado (Release existente) nunca é regerado automaticamente.
+- Um episódio já publicado (Release existente) só é regerado com o marcador `refazer` (a sessão do Claude não apaga Releases pela API, então o workflow faz isso com o `GITHUB_TOKEN`).
+- A execução do workflow que usa o ambiente `github-pages` pode ficar em "Waiting" até alguém aprovar o deploy, se o repositório exigir revisão.
+- A primeira execução automática da tarefa agendada (02/11/2026) ainda não foi observada; até lá, o caminho de ponta a ponta foi validado apenas com episódios criados manualmente.
 - O feed mostra só os 12 episódios mais recentes (`KEEP_EPISODES` no workflow); os demais continuam nas Releases.
 - Se o Google TTS falhar, o workflow falha e nada é publicado; o roteiro permanece no repositório e o episódio pode ser reprocessado (ver `operacao.md`).
