@@ -17,7 +17,7 @@
 Nada a fazer. Na segunda-feira:
 
 - 8h13: a tarefa agendada roda e você recebe uma notificação no celular com os destaques.
-- Poucos minutos depois: o episódio aparece no app Podcasts.
+- Poucos minutos depois: o episódio (uma conversa de cerca de 15 minutos) aparece no app Podcasts, com as notas e os links na descrição.
 - O documento escrito, com todos os links, fica na lista de artefatos do Claude.
 
 ## Ajustes
@@ -26,12 +26,35 @@ Em Settings › Secrets and variables › Actions › **Variables**:
 
 | Variável | Padrão | Exemplos |
 |---|---|---|
-| `TTS_VOICE` | `pt-BR-Chirp3-HD-Charon` (masculina) | `pt-BR-Chirp3-HD-Orus` (masculina), `pt-BR-Chirp3-HD-Kore` (feminina) |
+| `TTS_VOICE_RAFA` | `pt-BR-Chirp3-HD-Charon` (masculina) | `pt-BR-Chirp3-HD-Orus`, `pt-BR-Chirp3-HD-Fenrir` |
+| `TTS_VOICE_CAMILA` | `pt-BR-Chirp3-HD-Kore` (feminina) | `pt-BR-Chirp3-HD-Aoede`, `pt-BR-Chirp3-HD-Leda` |
+| `TTS_VOICE` | igual à do Rafa | voz do modo narrador (roteiro sem rótulos) |
 | `TTS_RATE` | `1.0` | `1.1` para ouvir um pouco mais rápido |
 
 Em `.github/workflows/episodio.yml`: `KEEP_EPISODES` (padrão 12) define quantos episódios ficam no feed.
 
 Escopo, tom, tamanho do roteiro e horário mudam na **tarefa agendada** (pedir ao Claude para atualizá-la), não neste repositório.
+
+## Formato do roteiro
+
+O arquivo `episodes/AAAA-MM-DD/roteiro.txt` é um diálogo:
+
+```
+# Bloco 1 — Visão geral da IA no mundo
+RAFA: Bom dia! Você está ouvindo o Radar de IA e Tecnologia...
+
+CAMILA: E eu sou a Camila. Um aviso rápido: nós dois somos apresentadores virtuais...
+
+# Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
+RAFA: ...
+```
+
+- Cada fala fica numa linha que começa com `RAFA: ` ou `CAMILA: `, com linha em branco entre falas.
+- Linhas que começam com `# ` são marcadores de bloco: não são faladas e geram uma pausa longa.
+- Linhas sem rótulo continuam a fala anterior. Um roteiro sem nenhum rótulo é lido inteiro por uma voz (modo narrador).
+- Escreva para ser ouvido: frases curtas, números e siglas como devem ser lidos, sem URLs nem markdown.
+- O arquivo `notas.md` traz as notas do episódio (1ª linha = título; o resto vira a descrição no app, com listas, negrito e links).
+- Para trocar as vozes, use as variáveis `TTS_VOICE_RAFA` e `TTS_VOICE_CAMILA` (seção Ajustes). As vozes Chirp 3 HD disponíveis estão na documentação do Google Cloud Text-to-Speech.
 
 ## Solução de problemas
 
@@ -42,6 +65,8 @@ Escopo, tom, tamanho do roteiro e horário mudam na **tarefa agendada** (pedir a
 | Workflow falha em "deploy-pages" | Pages não está em Source: GitHub Actions | Ajuste em Settings › Pages e dê push de novo |
 | A tarefa agendada não publicou o roteiro | Falha de acesso ao repositório | A mensagem final da tarefa traz o erro e o roteiro em anexo; copie para `episodes/` e faça push |
 | Áudio cortado ou com pronúncia estranha | Texto com siglas, URLs ou símbolos | Reescreva o trecho em `roteiro.txt` (números por extenso, sem URLs) e refaça o episódio |
+| Uma fala saiu com a voz errada ou o locutor não troca | Rótulo ausente, com erro de digitação ou em minúsculas fora do padrão `RAFA:` / `CAMILA:` | Corrija o rótulo no `roteiro.txt` e refaça o episódio |
+| Workflow falha com erro HTTP 429 do Google | Limite de taxa da API (o script já tenta de novo até 6 vezes) | Rode de novo pouco depois; se persistir, verifique a cota no Google Cloud |
 | Quero ouvir o MP3 sem o app | — | Baixe da Release `ep-AAAA-MM-DD` na página de Releases do repositório |
 
 ## Refazer um episódio
@@ -61,7 +86,7 @@ O workflow ignora episódios que já têm Release. Para regerar:
 
 | Item | Custo |
 |---|---|
-| Google Cloud TTS (Chirp 3 HD) | Grátis até 1 milhão de caracteres/mês; um episódio usa ~7 mil (cerca de 0,7% da cota) |
+| Google Cloud TTS (Chirp 3 HD) | Grátis até 1 milhão de caracteres/mês; um episódio usa ~13 mil (cerca de 1,3% da cota) |
 | GitHub (repositório público, Actions, Releases, Pages) | Grátis |
 | Tarefa agendada do Claude | Consome o uso normal da sua assinatura do Claude |
 

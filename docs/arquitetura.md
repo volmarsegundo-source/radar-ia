@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em texto (com links) e em áudio, para ouvir offline no iPhone e no Apple Watch, com custo zero e sem intervenção manual.
+Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em texto (com links) e em áudio, para ouvir offline no iPhone e no Apple Watch, com custo zero e sem intervenção manual. O áudio é uma conversa de ~15 minutos entre dois apresentadores virtuais, em dois blocos: visão geral da IA no mundo e aprofundamento em engenharia de software e arquitetura empresarial.
 
 ## Componentes
 
@@ -11,8 +11,8 @@ Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em
 | Tarefa agendada "Resumo semanal de IA e tecnologia" | Pesquisa as notícias da semana, escreve o documento, o roteiro e as notas, e faz push no repositório | Claude (Claude Code remoto), cron `13 8 * * 1`, fuso America/Sao_Paulo |
 | Repositório `radar-ia` | Guarda roteiros, notas, scripts e documentação | GitHub (público) |
 | Workflow `episodio.yml` | Gera o áudio, cria a Release e publica o feed | GitHub Actions |
-| `scripts/tts.py` | Converte `roteiro.txt` em um MP3 único | Google Cloud Text-to-Speech + ffmpeg |
-| `scripts/build_feed.py` | Monta `feed.xml` e `index.html` a partir das Releases | Python (biblioteca padrão) + ffprobe |
+| `scripts/tts.py` | Converte o diálogo de `roteiro.txt` em um MP3 único, com uma voz por locutor | Google Cloud Text-to-Speech + ffmpeg |
+| `scripts/build_feed.py` | Monta `feed.xml` (notas em HTML, com links) e `index.html` a partir das Releases | Python (biblioteca padrão) + ffprobe |
 | Releases (`ep-AAAA-MM-DD`) | Arquivo permanente dos MP3 | GitHub Releases |
 | GitHub Pages | Serve o feed e os últimos 12 episódios | `volmarsegundo-source.github.io/radar-ia` |
 | App Podcasts | Segue o feed e baixa os episódios (iPhone e Apple Watch) | Dispositivos do usuário |
@@ -21,7 +21,7 @@ Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em
 
 1. **Segunda 8h13.** A tarefa agendada pesquisa as notícias dos últimos 7 dias, publica o documento escrito com links e cria `episodes/AAAA-MM-DD/roteiro.txt` e `notas.md`. Faz commit e push na `main` (mensagem `Episódio AAAA-MM-DD`).
 2. **Gatilho.** O push em `episodes/**` dispara o workflow. Ele também pode ser disparado manualmente (`workflow_dispatch`) pela aba Actions.
-3. **Áudio.** Para cada pasta em `episodes/` sem Release correspondente, `tts.py` divide o roteiro em blocos de até 4.500 bytes (o limite da API é 5.000), sintetiza cada bloco e junta tudo com ffmpeg em um MP3 mono, 44,1 kHz, 64 kbps.
+3. **Áudio.** Para cada pasta em `episodes/` sem Release correspondente, `tts.py` lê o roteiro fala por fala (`RAFA:` / `CAMILA:`), sintetiza cada fala com a voz do locutor (falas acima de 4.500 bytes são divididas por frase; o limite da API é 5.000), decodifica tudo para PCM, insere pausas (0,35 s entre falas; 1,4 s entre blocos), normaliza o volume (~-19 LUFS, padrão de podcast mono) e codifica um MP3 mono, 44,1 kHz, 64 kbps. Roteiros sem rótulos são lidos por uma única voz (modo narrador).
 4. **Release.** O MP3 é anexado a uma Release `ep-AAAA-MM-DD`. O título vem da 1ª linha de `notas.md` e o corpo da Release são as notas.
 5. **Feed.** O workflow baixa os MP3 das 12 Releases mais recentes, `build_feed.py` gera `feed.xml` (RSS com tags iTunes, duração e tamanho reais) e `index.html`, e o GitHub Pages publica.
 6. **Escuta.** O app Podcasts já segue o feed e baixa o episódio novo automaticamente; o Apple Watch baixa os programas seguidos para uso offline.
@@ -46,6 +46,15 @@ Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em
   - **NotebookLM / Resumo em Áudio:** incluído na assinatura, mas manual e não automatizável.
   - **ChatGPT / Claude:** API de voz cobrada à parte (ChatGPT) ou sem geração de áudio (Claude).
 
+### Formato conversa com dois apresentadores
+
+- **Por quê:** o ouvinte é um profissional ocupado, em deslocamento ou na academia; a conversa é mais fácil de acompanhar que um noticiário corrido. Um segundo interlocutor permite explicar cada conceito novo (o que é, para que serve, quem usa) sem interromper a narrativa, o que atende a ouvintes que ainda não conhecem a tecnologia.
+- **Papéis fixos:** RAFA conduz e pergunta; CAMILA explica e contextualiza. A estrutura em dois blocos (visão geral → aprofundamento em engenharia de software e arquitetura empresarial) é parte do prompt da tarefa agendada.
+- **Transparência:** os apresentadores são virtuais; a abertura de cada episódio e a descrição do podcast dizem isso.
+- **Fontes:** citadas oralmente (nome e data) e listadas com links nas notas do episódio, que o app Podcasts exibe. O feed converte o markdown das notas em HTML limitado (parágrafos, listas, negrito, itálico, links), o que o app suporta.
+- **Implementação:** o Google TTS sintetiza um locutor por requisição, então cada fala é uma chamada; o script monta o áudio no próprio PCM (sem depender de concatenar MP3 de taxas diferentes). A síntese multilocutor do Gemini TTS foi descartada por ser paga. Não há fala sobreposta nem interrupções, apenas turnos, o que é adequado para um briefing.
+- **Tamanho:** 2.000 a 2.600 palavras (~13 mil caracteres, 14 a 17 minutos, ~7,5 MB); usa ~1,3% do nível gratuito mensal do Google TTS por episódio.
+
 ### Roteiro pelo Claude, áudio pelo GitHub
 
 O Claude escreve o texto; a geração de áudio fica no GitHub Actions. Motivos: o ambiente do Claude não consegue baixar arquivos de áudio de provedores externos nem juntar partes de forma confiável, e o Actions permite reprocessar, versionar e inspecionar cada execução.
@@ -58,7 +67,8 @@ O repositório e o site são públicos (Pages gratuito exige repositório públi
 
 - A sessão do Claude só acessa o repositório depois de `add_repo` (owner `volmarsegundo-source`, repo `radar-ia`, acesso `push`). Não cria repositórios, não ativa o Pages e não dispara workflows pela API; só o push dispara.
 - A sessão do Claude não alcança `github.io` nem `cloudfront.net`; a conferência do feed é feita pelo usuário no navegador.
-- Limite de 5.000 bytes por requisição do Google TTS (tratado pelo particionamento em blocos de 4.500 bytes).
+- Limite de 5.000 bytes por requisição do Google TTS (falas maiores são divididas por frase). Cada fala é uma requisição; o script repete automaticamente em caso de limite de taxa (HTTP 429) ou erro transitório do servidor.
+- As vozes são sintéticas e não interrompem uma à outra; a naturalidade depende do texto do roteiro (frases curtas, pronúncia escrita por extenso).
 - Um episódio já publicado (Release existente) nunca é regerado automaticamente.
 - O feed mostra só os 12 episódios mais recentes (`KEEP_EPISODES` no workflow); os demais continuam nas Releases.
 - Se o Google TTS falhar, o workflow falha e nada é publicado; o roteiro permanece no repositório e o episódio pode ser reprocessado (ver `operacao.md`).
