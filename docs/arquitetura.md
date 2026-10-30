@@ -1,0 +1,64 @@
+# Arquitetura
+
+## Objetivo
+
+Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em texto (com links) e em áudio, para ouvir offline no iPhone e no Apple Watch, com custo zero e sem intervenção manual.
+
+## Componentes
+
+| Componente | Papel | Onde vive |
+|---|---|---|
+| Tarefa agendada "Resumo semanal de IA e tecnologia" | Pesquisa as notícias da semana, escreve o documento, o roteiro e as notas, e faz push no repositório | Claude (Claude Code remoto), cron `13 8 * * 1`, fuso America/Sao_Paulo |
+| Repositório `radar-ia` | Guarda roteiros, notas, scripts e documentação | GitHub (público) |
+| Workflow `episodio.yml` | Gera o áudio, cria a Release e publica o feed | GitHub Actions |
+| `scripts/tts.py` | Converte `roteiro.txt` em um MP3 único | Google Cloud Text-to-Speech + ffmpeg |
+| `scripts/build_feed.py` | Monta `feed.xml` e `index.html` a partir das Releases | Python (biblioteca padrão) + ffprobe |
+| Releases (`ep-AAAA-MM-DD`) | Arquivo permanente dos MP3 | GitHub Releases |
+| GitHub Pages | Serve o feed e os últimos 12 episódios | `volmarsegundo-source.github.io/radar-ia` |
+| App Podcasts | Segue o feed e baixa os episódios (iPhone e Apple Watch) | Dispositivos do usuário |
+
+## Fluxo de dados
+
+1. **Segunda 8h13.** A tarefa agendada pesquisa as notícias dos últimos 7 dias, publica o documento escrito com links e cria `episodes/AAAA-MM-DD/roteiro.txt` e `notas.md`. Faz commit e push na `main` (mensagem `Episódio AAAA-MM-DD`).
+2. **Gatilho.** O push em `episodes/**` dispara o workflow. Ele também pode ser disparado manualmente (`workflow_dispatch`) pela aba Actions.
+3. **Áudio.** Para cada pasta em `episodes/` sem Release correspondente, `tts.py` divide o roteiro em blocos de até 4.500 bytes (o limite da API é 5.000), sintetiza cada bloco e junta tudo com ffmpeg em um MP3 mono, 44,1 kHz, 64 kbps.
+4. **Release.** O MP3 é anexado a uma Release `ep-AAAA-MM-DD`. O título vem da 1ª linha de `notas.md` e o corpo da Release são as notas.
+5. **Feed.** O workflow baixa os MP3 das 12 Releases mais recentes, `build_feed.py` gera `feed.xml` (RSS com tags iTunes, duração e tamanho reais) e `index.html`, e o GitHub Pages publica.
+6. **Escuta.** O app Podcasts já segue o feed e baixa o episódio novo automaticamente; o Apple Watch baixa os programas seguidos para uso offline.
+
+## Decisões
+
+### Hospedagem dos áudios: GitHub (Releases + Pages)
+
+- Cada episódio tem ~3,5 MB (~200 MB por ano). Commitar MP3 faria o repositório crescer para sempre; as **Releases** guardam os arquivos fora do histórico do git (limite de 2 GB por arquivo).
+- O **Pages** serve só os 12 episódios mais recentes, e o site é reconstruído a cada execução.
+- Alternativas descartadas:
+  - **Vercel:** funcionaria, mas adiciona outro serviço e outra conta para um caso que o GitHub já cobre sem custo.
+  - **Google Drive / OneDrive:** os links de download passam por redirecionamentos e telas de verificação; o app Podcasts costuma falhar ao baixar ou tocar. Podem servir como cópia de backup, nunca como origem do feed.
+
+### Geração de voz: Google Cloud Text-to-Speech (Chirp 3 HD)
+
+- Nível gratuito de 1 milhão de caracteres por mês nas vozes Chirp 3 HD; um episódio usa ~7 mil.
+- Qualidade natural em pt-BR, API estável e chamada simples (HTTP com chave de API), adequada para rodar em CI.
+- Alternativas descartadas:
+  - **Higgsfield (ElevenLabs):** usado no primeiro teste; custa ~20 créditos por episódio e o plano básico acabaria em poucas semanas.
+  - **Gemini TTS (API):** boa qualidade, mas pago (~US$ 0,10 por episódio) e sem relação com a assinatura Gemini Pro.
+  - **NotebookLM / Resumo em Áudio:** incluído na assinatura, mas manual e não automatizável.
+  - **ChatGPT / Claude:** API de voz cobrada à parte (ChatGPT) ou sem geração de áudio (Claude).
+
+### Roteiro pelo Claude, áudio pelo GitHub
+
+O Claude escreve o texto; a geração de áudio fica no GitHub Actions. Motivos: o ambiente do Claude não consegue baixar arquivos de áudio de provedores externos nem juntar partes de forma confiável, e o Actions permite reprocessar, versionar e inspecionar cada execução.
+
+### Feed público, sem listagem
+
+O repositório e o site são públicos (Pages gratuito exige repositório público). O feed tem `itunes:block`, para não aparecer em diretórios, mas qualquer pessoa com o endereço pode acessá-lo. O conteúdo são notícias públicas; nada confidencial deve entrar aqui.
+
+## Limites e restrições conhecidos
+
+- A sessão do Claude só acessa o repositório depois de `add_repo` (owner `volmarsegundo-source`, repo `radar-ia`, acesso `push`). Não cria repositórios, não ativa o Pages e não dispara workflows pela API; só o push dispara.
+- A sessão do Claude não alcança `github.io` nem `cloudfront.net`; a conferência do feed é feita pelo usuário no navegador.
+- Limite de 5.000 bytes por requisição do Google TTS (tratado pelo particionamento em blocos de 4.500 bytes).
+- Um episódio já publicado (Release existente) nunca é regerado automaticamente.
+- O feed mostra só os 12 episódios mais recentes (`KEEP_EPISODES` no workflow); os demais continuam nas Releases.
+- Se o Google TTS falhar, o workflow falha e nada é publicado; o roteiro permanece no repositório e o episódio pode ser reprocessado (ver `operacao.md`).

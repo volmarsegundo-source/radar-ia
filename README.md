@@ -1,40 +1,60 @@
 # Radar de IA & Tecnologia — podcast semanal
 
-Pipeline que transforma o roteiro semanal (escrito pela tarefa agendada do Claude) num episódio de podcast que o app Podcasts do iPhone e do Apple Watch baixam sozinhos.
+Briefing semanal de notícias de IA e tecnologia (engenharia de software, aplicações corporativas, arquitetura empresarial), pensado para ouvir offline no iPhone e no Apple Watch no deslocamento e na academia.
+
+Toda segunda-feira às 8h13 (horário de São Paulo) uma tarefa agendada do Claude pesquisa a semana e publica dois produtos:
+
+- um **documento escrito** com destaques, resumos e links (publicado pelo Claude);
+- um **episódio de podcast** de 7 a 10 minutos, gerado automaticamente por este repositório.
+
+**Feed (para colar no app Podcasts):** `https://volmarsegundo-source.github.io/radar-ia/feed.xml`
+
+## Status
+
+| Item | Situação |
+|---|---|
+| Tarefa agendada "Resumo semanal de IA e tecnologia" | Ativa, segundas 8h13 (America/Sao_Paulo) |
+| Geração de áudio (Google Cloud TTS, Chirp 3 HD) | Funcionando; validada com o episódio de teste |
+| Publicação (Releases + GitHub Pages) | Funcionando |
+| Episódios | `2026-10-30` (edição de teste); o primeiro automático sai em 02/11/2026 |
+
+## Documentação
+
+| Arquivo | Conteúdo |
+|---|---|
+| [`docs/arquitetura.md`](docs/arquitetura.md) | Componentes, fluxo de dados, decisões e alternativas descartadas, limites |
+| [`docs/operacao.md`](docs/operacao.md) | Configuração inicial, uso no iPhone/Watch, ajustes, solução de problemas, custos |
+| [`CLAUDE.md`](CLAUDE.md) | Guia para o Claude: regras do projeto e limitações do ambiente |
+
+## Visão geral
 
 ```
-Claude (segunda 8h13) ──commit──▶ episodes/AAAA-MM-DD/{roteiro.txt, notas.md}
-                                         │
-                       GitHub Actions ◀──┘
-                       1. Google Cloud TTS (Chirp 3 HD, pt-BR) → MP3 único
-                       2. Release "ep-AAAA-MM-DD" (arquivo permanente de todos os episódios)
-                       3. GitHub Pages: feed.xml + últimos 12 episódios
-                                         │
-                       App Podcasts (iPhone/Watch) ◀── segue o feed
+Tarefa agendada do Claude (segunda 8h13) ──push──▶ episodes/AAAA-MM-DD/{roteiro.txt, notas.md}
+                                                        │
+                                      GitHub Actions ◀──┘
+                                      1. Google Cloud TTS (Chirp 3 HD, pt-BR) → MP3 único
+                                      2. Release "ep-AAAA-MM-DD" (arquivo permanente)
+                                      3. GitHub Pages: feed.xml + últimos 12 episódios
+                                                        │
+                                      App Podcasts (iPhone / Apple Watch) ◀── segue o feed
 ```
 
-## Configuração (uma vez)
+## Estrutura do repositório
 
-1. **Chave do Google Cloud TTS**
-   - Em console.cloud.google.com: crie um projeto, ative a **Cloud Text-to-Speech API** e vincule uma conta de faturamento (o uso fica dentro do nível gratuito: 1 milhão de caracteres/mês nas vozes Chirp 3 HD; um episódio tem cerca de 7 mil).
-   - APIs e serviços › Credenciais › Criar credenciais › **Chave de API**. Restrinja a chave à Cloud Text-to-Speech API.
-   - Recomendado: crie um alerta de orçamento de US$ 1 em Faturamento › Orçamentos.
-2. **Secret no GitHub**: Settings › Secrets and variables › Actions › New repository secret › nome `GOOGLE_TTS_API_KEY`.
-3. **GitHub Pages**: Settings › Pages › Source: **GitHub Actions**.
-4. Rode a primeira vez: aba Actions › "Gerar episódio e publicar feed" › Run workflow.
-5. **No iPhone**: Podcasts › Biblioteca › ⋯ / Editar › **Seguir programa por URL** › `https://volmarsegundo-source.github.io/radar-ia/feed.xml`.
-6. **No Apple Watch** (app Watch no iPhone › Podcasts): deixe o programa em "Personalizado" com download dos episódios mais recentes. O Watch baixa quando está carregando.
+```
+.github/workflows/episodio.yml   workflow: gera áudio, cria Release, publica o feed
+scripts/tts.py                   roteiro → MP3 (Google TTS + ffmpeg)
+scripts/build_feed.py            Releases → feed.xml + index.html
+assets/cover.png                 capa do podcast (1400×1400)
+episodes/AAAA-MM-DD/             um diretório por episódio (roteiro.txt, notas.md)
+docs/                            documentação
+CLAUDE.md                        guia para o Claude
+```
 
-## Ajustes opcionais (Settings › Secrets and variables › Actions › Variables)
+## Adicionar um episódio manualmente
 
-| Variável | Padrão | Exemplo |
-|---|---|---|
-| `TTS_VOICE` | `pt-BR-Chirp3-HD-Charon` (masculina) | `pt-BR-Chirp3-HD-Kore` (feminina), `pt-BR-Chirp3-HD-Orus` |
-| `TTS_RATE` | `1.0` | `1.1` para ouvir um pouco mais rápido |
+1. Crie `episodes/AAAA-MM-DD/roteiro.txt` (texto falado; parágrafos separados por linha em branco).
+2. Crie `episodes/AAAA-MM-DD/notas.md` (1ª linha `# Título do episódio`; o restante são as notas com links).
+3. Faça push na `main`. O workflow gera o áudio e atualiza o feed em poucos minutos.
 
-## Armazenamento
-
-- Cada episódio ≈ 3,5 MB (64 kbps mono). Um ano ≈ 200 MB.
-- Os MP3s ficam como anexos das **Releases** (não entram no histórico do git; limite de 2 GB por arquivo), então o repositório continua pequeno.
-- O site (Pages) é reconstruído a cada execução só com os últimos 12 episódios.
-- O feed tem `itunes:block` para não aparecer no diretório da Apple, mas o repositório e o site são públicos: não coloque conteúdo confidencial aqui.
+Mais detalhes, configuração inicial e solução de problemas: [`docs/operacao.md`](docs/operacao.md).

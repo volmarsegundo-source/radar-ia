@@ -2,6 +2,8 @@
 
 Podcast semanal pessoal do Volmar (São Paulo, comunica-se em português). Toda segunda às 8h13 (America/Sao_Paulo) uma tarefa agendada do Claude pesquisa as notícias de IA da semana, publica um documento escrito e envia ao repositório o roteiro do episódio. O resto é automático.
 
+Documentação completa: `README.md` (visão geral e status), `docs/arquitetura.md` (componentes, decisões, limites) e `docs/operacao.md` (configuração, ajustes, solução de problemas, custos). Ao mudar o pipeline, atualize esses arquivos no mesmo commit.
+
 ## Fluxo
 
 1. **Tarefa agendada "Resumo semanal de IA e tecnologia"** (Claude Code remoto, cron `13 8 * * 1`, fuso America/Sao_Paulo). O prompt completo fica na própria tarefa. Para mudar escopo, tom, tamanho ou horário, altere a tarefa (update_trigger), não este repositório.
