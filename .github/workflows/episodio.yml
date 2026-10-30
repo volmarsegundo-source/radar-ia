@@ -33,6 +33,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+          TTS_VOICE_RAFA: ${{ vars.TTS_VOICE_RAFA }}
+          TTS_VOICE_CAMILA: ${{ vars.TTS_VOICE_CAMILA }}
           TTS_VOICE: ${{ vars.TTS_VOICE }}
           TTS_RATE: ${{ vars.TTS_RATE }}
         run: |

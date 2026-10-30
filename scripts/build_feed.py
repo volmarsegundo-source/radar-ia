@@ -7,6 +7,7 @@ Espera os áudios em site/audio/<tagName>.mp3.
 """
 import html
 import json
+import re
 import subprocess
 import sys
 from datetime import datetime
@@ -14,8 +15,9 @@ from email.utils import format_datetime
 from pathlib import Path
 
 SHOW_TITLE = "Radar de IA &amp; Tecnologia"
-SHOW_DESC = ("Briefing semanal sobre IA aplicada a engenharia de software, "
-             "aplicações corporativas e arquitetura empresarial.")
+SHOW_DESC = ("Conversa semanal sobre IA: visão geral do mundo e um aprofundamento em engenharia "
+             "de software e arquitetura empresarial. Apresentadores virtuais (vozes geradas por IA); "
+             "fontes e links nas notas de cada episódio.")
 AUTHOR = "Volmar"
 
 
@@ -26,18 +28,46 @@ def duration(path: Path) -> int:
     return int(float(out))
 
 
-def md_links_to_html(text: str) -> str:
-    """Converte o markdown simples das notas (linhas, **negrito**, [texto](url)) em HTML."""
-    import re
-    out = []
-    for line in text.splitlines():
-        line = html.escape(line, quote=False)
-        line = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2">\1</a>', line)
-        line = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", line)
-        line = re.sub(r"^#+\s*(.*)$", r"<b>\1</b>", line)
-        line = re.sub(r"^[-*]\s+", "• ", line)
-        out.append(line)
-    return "<br/>\n".join(out)
+def inline(text: str) -> str:
+    """Escapa HTML e converte [texto](url), **negrito** e *itálico* em tags."""
+    text = html.escape(text, quote=False)
+    text = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2">\1</a>', text)
+    text = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", text)
+    text = re.sub(r"(?<!\*)\*([^*\s][^*]*)\*(?!\*)", r"<i>\1</i>", text)
+    return text
+
+
+def md_to_html(text: str) -> str:
+    """Markdown simples → HTML que o app Podcasts exibe (p, b, i, a, ul, li)."""
+    out, in_list = [], False
+    for raw in text.splitlines():
+        line = raw.strip()
+        if re.match(r"^[-*]\s+", line):
+            if not in_list:
+                out.append("<ul>")
+                in_list = True
+            out.append(f"<li>{inline(re.sub(r'^[-*]\s+', '', line))}</li>")
+            continue
+        if in_list:
+            out.append("</ul>")
+            in_list = False
+        if not line:
+            continue
+        m = re.match(r"^#{1,6}\s*(.*)$", line)
+        if m:
+            out.append(f"<p><b>{inline(m.group(1))}</b></p>")
+        else:
+            out.append(f"<p>{inline(line)}</p>")
+    if in_list:
+        out.append("</ul>")
+    return "\n".join(out)
+
+
+def plain(text: str) -> str:
+    """Versão em texto simples (itunes:summary): sem marcação, links viram 'texto (url)'."""
+    text = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r"\1 (\2)", text)
+    text = re.sub(r"[*#]", "", text)
+    return text.strip()
 
 
 def main() -> None:
@@ -54,7 +84,8 @@ def main() -> None:
         url = f"{base}/audio/{mp3.name}"
         pub = datetime.fromisoformat(r["publishedAt"].replace("Z", "+00:00"))
         secs = duration(mp3)
-        notes = md_links_to_html(r.get("body") or "")
+        body = r.get("body") or ""
+        notes = md_to_html(body)
         items.append(f"""    <item>
       <title>{html.escape(r['name'])}</title>
       <guid isPermaLink="false">{r['tagName']}</guid>
@@ -62,6 +93,7 @@ def main() -> None:
       <enclosure url="{url}" length="{mp3.stat().st_size}" type="audio/mpeg"/>
       <itunes:duration>{secs}</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
+      <itunes:summary><![CDATA[{plain(body)}]]></itunes:summary>
       <description><![CDATA[{notes}]]></description>
     </item>""")
         rows.append(f'<li><a href="audio/{mp3.name}">{html.escape(r["name"])}</a> — {secs // 60} min</li>')
