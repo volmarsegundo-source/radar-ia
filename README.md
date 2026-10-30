@@ -1,4 +1,4 @@
-# Radar de IA & Tecnologia — podcast semanal
+# Radar de IA & Tecnologia: Engenharia de Software e Arquitetura — podcast semanal
 
 Conversa semanal de cerca de 18 minutos sobre IA, pensada como treinamento para os executive partners entregarem valor aos clientes,, pensada para ouvir offline no iPhone e no Apple Watch no deslocamento e na academia. Dois apresentadores virtuais (vozes geradas por IA), Rafa e Camila, conversam em dois blocos:
 

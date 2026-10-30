@@ -2,6 +2,8 @@
 
 ## Objetivo
 
+Título do podcast: **Radar de IA & Tecnologia: Engenharia de Software e Arquitetura**. O subtítulo delimita os dois domínios de aprofundamento; outros domínios poderão virar podcasts próprios no futuro (outro repositório/feed).
+
 Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em texto (com links) e em áudio, para ouvir offline no iPhone e no Apple Watch, com custo zero e sem intervenção manual. O programa é um treinamento para os executive partners entregarem valor aos clientes. O áudio é uma conversa de ~18 minutos entre dois apresentadores virtuais, em dois blocos: visão geral da IA no mundo e aprofundamento em engenharia de software e arquitetura empresarial.
 
 ## Componentes

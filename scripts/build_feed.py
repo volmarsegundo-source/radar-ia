@@ -16,9 +16,10 @@ from email.utils import format_datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-SHOW_TITLE = "Radar de IA &amp; Tecnologia"
-SHOW_DESC = ("Conversa semanal sobre IA: visão geral do mundo e um aprofundamento em engenharia "
-             "de software e arquitetura empresarial. Apresentadores virtuais (vozes geradas por IA); "
+SHOW_TITLE = "Radar de IA &amp; Tecnologia: Engenharia de Software e Arquitetura"
+SHOW_DESC = ("Conversa semanal sobre IA com foco em dois domínios: engenharia de software e arquitetura "
+             "empresarial. Começa com uma visão geral da IA no mundo e aprofunda o que muda nessas duas "
+             "áreas, com os insights para levar aos clientes. Apresentadores virtuais (vozes geradas por IA); "
              "fontes e links nas notas de cada episódio.")
 AUTHOR = "Volmar"
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto",
@@ -170,7 +171,7 @@ def share_html(ep: dict) -> str:
 def build_site(site: Path, base: str, eps: list) -> None:
     """index.html (página do podcast) e ep/<tag>/index.html (uma página por episódio)."""
     for ep in eps:
-        inner = f"""<p><a href="{base}/">← Radar de IA &amp; Tecnologia</a></p>
+        inner = f"""<p><a href="{base}/">← {SHOW_TITLE}</a></p>
 <section class="card"><h3>{html.escape(ep['title'])}</h3><p class="meta">{ep['date']} · {ep['mins']} min</p>
 {player_html(ep)}{share_html(ep)}</section>
 {subscribe_card(base)}
@@ -181,7 +182,7 @@ def build_site(site: Path, base: str, eps: list) -> None:
 
     latest = eps[0] if eps else None
     hero = f"""<div class="hero"><img src="{base}/cover.png" alt="Capa do podcast"><div>
-<h1>{SHOW_TITLE}</h1><p class="sub">Toda segunda: a semana em IA em uma conversa de cerca de 15 minutos, com os insights para levar aos clientes.</p></div></div>"""
+<h1>{SHOW_TITLE}</h1><p class="sub">Toda segunda: uma conversa de cerca de 18 minutos sobre IA, com aprofundamento em engenharia de software e arquitetura empresarial e os insights para levar aos clientes.</p></div></div>"""
     feat = ""
     if latest:
         feat = f"""<section class="card"><p class="meta" style="margin-bottom:4px">Episódio mais recente</p>
@@ -191,7 +192,7 @@ def build_site(site: Path, base: str, eps: list) -> None:
     rows = "".join(f"""<a class="ep" href="{e['url']}"><b>{html.escape(e['title'])}</b><span>{e['date']} · {e['mins']} min</span></a>"""
                    for e in eps)
     inner = f"{hero}{feat}{subscribe_card(base)}<section class=\"card eps\"><h2>Todos os episódios</h2>{rows}</section>"
-    (site / "index.html").write_text(page("Radar de IA & Tecnologia", SHOW_DESC, base + "/", base, inner), encoding="utf-8")
+    (site / "index.html").write_text(page(html.unescape(SHOW_TITLE), SHOW_DESC, base + "/", base, inner), encoding="utf-8")
 
 
 def main() -> None:

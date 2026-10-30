@@ -41,6 +41,8 @@ Em Settings › Secrets and variables › Actions › **Variables**:
 
 Em `.github/workflows/episodio.yml`: `KEEP_EPISODES` (padrão 12) define quantos episódios ficam no feed.
 
+Título e descrição do podcast ficam em `SHOW_TITLE` e `SHOW_DESC` no `scripts/build_feed.py` (mudam o feed e a página; rode o workflow manualmente para publicar, porque só alterações em `episodes/**` o disparam).
+
 Escopo, tom, tamanho do roteiro e horário mudam na **tarefa agendada** (pedir ao Claude para atualizá-la), não neste repositório.
 
 ## Formato do roteiro
