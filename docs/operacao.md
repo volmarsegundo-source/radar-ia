@@ -17,8 +17,16 @@
 Nada a fazer. Na segunda-feira:
 
 - 8h13: a tarefa agendada roda e você recebe uma notificação no celular com os destaques.
-- Poucos minutos depois: o episódio (uma conversa de cerca de 15 minutos) aparece no app Podcasts, com as notas e os links na descrição.
+- Poucos minutos depois: o episódio (uma conversa de cerca de 18 minutos, com os insights para levar aos clientes) aparece no app Podcasts, com as notas e os links na descrição.
+- A página do podcast (`https://volmarsegundo-source.github.io/radar-ia/`) mostra o episódio com player e notas.
 - O documento escrito, com todos os links, fica na lista de artefatos do Claude.
+
+## Compartilhar com colegas
+
+- **Link da página do podcast** (`https://volmarsegundo-source.github.io/radar-ia/`) ou da página de um episódio (`.../ep/ep-AAAA-MM-DD/`): abre no navegador com player, notas e links, e tem os botões Assinar e Compartilhar. Funciona bem no WhatsApp e no Teams (com prévia da capa).
+- **Quem quer ouvir no app:** botão "Assinar no Apple Podcasts" da página (iPhone/Mac), ou "Copiar endereço do feed" e "Seguir por URL" em outros apps.
+- **Alcance maior (opcional):** retirar `itunes:block` do feed e cadastrar o programa no Apple Podcasts Connect e no Spotify gera links públicos e páginas web nativas, mas o programa fica público e passa por revisão das plataformas; confira antes as regras de conteúdo gerado por IA e a política da sua empresa.
+- **Endereço mais curto (opcional):** domínio próprio no GitHub Pages (Settings › Pages › Custom domain).
 
 ## Ajustes
 
@@ -54,6 +62,7 @@ RAFA: ...
 - Linhas sem rótulo continuam a fala anterior. Um roteiro sem nenhum rótulo é lido inteiro por uma voz (modo narrador).
 - Escreva para ser ouvido: frases curtas, números e siglas como devem ser lidos, sem URLs nem markdown.
 - O arquivo `notas.md` traz as notas do episódio (1ª linha = título; o resto vira a descrição no app, com listas, negrito e links).
+- Tamanho e marcação dos insights ("Insight para levar ao cliente:", fechamento) são definidos na tarefa agendada e em `CLAUDE.md`.
 - Para trocar as vozes, use as variáveis `TTS_VOICE_RAFA` e `TTS_VOICE_CAMILA` (seção Ajustes). As vozes Chirp 3 HD disponíveis estão na documentação do Google Cloud Text-to-Speech.
 
 ## Solução de problemas
@@ -86,7 +95,7 @@ O workflow ignora episódios que já têm Release. Para regerar:
 
 | Item | Custo |
 |---|---|
-| Google Cloud TTS (Chirp 3 HD) | Grátis até 1 milhão de caracteres/mês; um episódio usa ~13 mil (cerca de 1,3% da cota) |
+| Google Cloud TTS (Chirp 3 HD) | Grátis até 1 milhão de caracteres/mês; um episódio usa ~17 mil (cerca de 1,7% da cota) |
 | GitHub (repositório público, Actions, Releases, Pages) | Grátis |
 | Tarefa agendada do Claude | Consome o uso normal da sua assinatura do Claude |
 

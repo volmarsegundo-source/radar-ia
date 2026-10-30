@@ -1,31 +1,163 @@
-Bom dia, Volmar. Este é o Radar de IA e Tecnologia, edição de teste, cobrindo a semana de 23 a 30 de outubro de 2026. São cerca de dez minutos: primeiro os destaques que merecem sua atenção, depois um giro rápido pelas outras notícias, e no fim os sinais para acompanhar. Os links de tudo estão no documento escrito.
+RAFA: Bom dia! Você está ouvindo o Radar de IA e Tecnologia, semana de vinte e três a trinta de outubro. Eu sou o Rafa.
 
-Vamos aos destaques.
+CAMILA: E eu sou a Camila. Um aviso rápido: nós dois somos apresentadores virtuais, com vozes geradas por inteligência artificial, e o conteúdo vem de notícias publicadas nesta semana.
 
-Destaque número um: a OpenAI lançou o GPT-6.1 Terra, no dia 26. É um modelo rápido e barato, voltado para uso de computador, raciocínio visual e programação. O preço na API é de um dólar por milhão de tokens de entrada e cinco dólares por milhão de saída, metade do que custavam o GPT-5.6 Terra e o GPT-6.1 Sol. A OpenAI afirma que ele termina tarefas mais de três vezes mais rápido que os modelos topo de linha e que, no benchmark Terminal-Bench, mais que dobrou o resultado da versão anterior. Esses números ainda são da própria OpenAI, sem validação independente. Por que importa: o custo por tarefa de agente caiu pela metade de uma semana para outra. Para quem desenha arquitetura de agentes ou faz FinOps de IA, é hora de revisar o roteamento de modelos e deixar os modelos caros só para o que realmente exige.
+RAFA: O episódio tem dois blocos. No primeiro, uma visão geral do que aconteceu com IA no mundo. No segundo, um aprofundamento em engenharia de software e em arquitetura empresarial.
 
-Destaque número dois: o GitHub Universe, no dia 28, trouxe a maior atualização do Copilot do ano. As sessões de agente agora rodam na nuvem do GitHub e continuam depois que você fecha o notebook. A mesma sessão pode ser retomada no VS Code, no aplicativo, no celular, na web ou na linha de comando. Há também uso de computador em fase experimental, com aprovação por aplicativo, uma função para comparar vários modelos lado a lado com um modelo juiz que recomenda a melhor solução, e um marketplace de skills, servidores MCP e plugins com controles para administradores. Por que importa: o agente de código deixa de ser uma ferramenta dentro do editor e vira um processo persistente, que trabalha sem você. Isso muda o modelo de governança: permissões, custos e auditoria passam a ser questões de plataforma, não de desenvolvedor individual.
+CAMILA: E um combinado: sempre que aparecer um conceito novo, eu explico o que é e quem já está usando. E a gente cita de onde veio cada informação. Os links de tudo estão nas notas do episódio, aqui no aplicativo. E ao longo da conversa eu vou marcar os insights para levar aos clientes. Eles são a leitura editorial do programa, não a posição oficial de nenhuma empresa.
 
-Destaque número três, e esse é o de maior repercussão em governança: uma investigação da revista WIRED, publicada no dia 29, relata que um funcionário da Accenture teria conectado uma conta pessoal do Claude Code a um ambiente de produção numa rede não classificada do Departamento de Defesa americano. Segundo a reportagem, o agente operou por cerca de dois meses com privilégios de administrador, fazendo commits em nome do funcionário, e teria enviado senhas e um mapa da rede para um site de terceiros. A Accenture contesta, diz que o caso foi investigado de forma independente e que as alegações não procedem. Não há indicação de acesso a redes classificadas. Por que importa: independentemente do desfecho, é o caso de referência que faltava sobre agentes com credenciais demais. Espere que ele apareça em conversas de compliance, auditoria e contratos. As lições práticas são as de sempre, agora com um exemplo concreto: permissões mínimas, credenciais de curta duração e rede restrita para qualquer agente.
+RAFA: Combinado. Vamos lá.
 
-Destaque número quatro: a Agentic AI Foundation, da Linux Foundation, anunciou no dia 22 quatro novos projetos sob governança neutra. O Agent Skills, da Anthropic, um formato aberto para empacotar instruções e scripts que agentes carregam sob demanda. O Open Responses, da OpenAI, uma especificação aberta para interfaces de modelo compatíveis entre fornecedores. O OpenEnv, da Hugging Face, para ambientes de aprendizado por reforço. E o OpenSandbox, da Alibaba, para execução isolada. A fundação, que já abriga o MCP, o A2A e o AGENTS.md, passa a ter dez projetos. Por que importa: concorrentes diretos estão entregando peças-chave para um padrão comum. Para arquitetura empresarial, isso reduz o risco de aprisionamento a um fornecedor e indica em quais padrões vale apostar.
+# Bloco 1 — Visão geral da IA no mundo
 
-Agora, um giro rápido pelas outras notícias.
+RAFA: A primeira notícia é da OpenAI. No dia vinte e seis, ela lançou o GPT seis ponto um Terra. Segundo o BleepingComputer, é um modelo pensado para ser rápido e barato, com foco em uso de computador, raciocínio visual e programação.
 
-Em engenharia de software: a Snowflake deu mais controle aos seus agentes de código no Cortex, com ajuste de profundidade de raciocínio, instruções de sistema e acesso direto a dados versionados dentro do sandbox. A Bloomberg lançou o BQuant Assistant, um assistente de programação especializado em finanças dentro do BQuant. E o Bubble mostrou seu Agent 2 e uma integração MCP em beta que funciona dentro do Claude e do ChatGPT.
+CAMILA: Vale explicar dois termos. "Uso de computador" é quando o modelo opera um computador como uma pessoa: olha a tela, clica, digita, preenche formulário. E por isso o "raciocínio visual" importa, porque ele precisa entender o que está vendo na tela.
 
-Em aplicações corporativas: a SAP anunciou novas ferramentas de desenvolvimento de agentes no Joule Studio, com acesso a mais de setenta modelos e uma camada de dados e ontologia para dar contexto de negócio aos agentes. A Tencent ampliou o WorkBuddy, seu agente de produtividade, para uso empresarial e prepara a família de modelos Hy4. A Cresta abriu ferramentas self-service para criar agentes de atendimento usando o próprio repositório e pipeline de CI/CD. E a Meta lançou seu agente pessoal Muse em Singapura, integrado a serviços como Grab e Shopee.
+RAFA: E o preço? Porque o título da notícia é que ficou mais barato.
 
-Em arquitetura e governança: a SK Telecom publicou seu primeiro relatório de governança de IA e passou a tratar agentes como força de trabalho, com número de identificação, supervisor humano designado e monitoramento de atividade. O Google Cloud ampliou os controles de perímetro de rede para agentes autônomos, sem custo adicional. A Akamai lançou em beta um serviço de inferência e um sandbox isolado para executar código gerado por agentes. E a Cisco apresentou um benchmark para avaliar agentes de cibersegurança que trabalham em várias etapas.
+CAMILA: Aqui entra o conceito de token. É o pedacinho de texto que o modelo lê ou escreve, e as empresas cobram por milhão de tokens. O Terra custa um dólar por milhão na entrada e cinco dólares por milhão na saída. Segundo o BleepingComputer, isso é metade do preço do Terra anterior e também do GPT seis ponto um Sol, que é o modelo maior da família.
 
-Em modelos e mercado: Oracle e Google anunciaram que as TPUs do Google estarão na nuvem da Oracle a partir de 2027. A Daytona, que faz infraestrutura de sandbox para agentes, captou sessenta milhões de dólares e virou unicórnio. E o CEO da NVIDIA comentou a possibilidade de uma licença anual de software de cerca de dois mil dólares por GPU para infraestrutura de agentes. Por enquanto é um sinal, não um anúncio confirmado.
+RAFA: E em desempenho?
 
-Para fechar, três sinais para acompanhar.
+CAMILA: A própria OpenAI diz que ele termina tarefas mais de três vezes mais rápido que os modelos maiores, e que em um teste de programação em terminal, chamado Terminal-Bench, ele fez cinquenta por cento, contra vinte e um por cento do modelo anterior. Mas atenção: esses números são da OpenAI e o BleepingComputer não os verificou de forma independente. E, para as tarefas de programação mais difíceis, a própria OpenAI continua recomendando os modelos maiores.
 
-Primeiro: o sandbox virou categoria própria. Akamai, Daytona, OpenSandbox e o próprio GitHub apontam para a mesma direção: agente em produção precisa de ambiente de execução isolado e controlado.
+RAFA: E quem já pode usar?
 
-Segundo: agentes estão sendo governados como funcionários, com identidade, supervisor e trilha de auditoria. O caso Accenture e o modelo da SK Telecom são os dois lados dessa mesma moeda.
+CAMILA: Está no ChatGPT Work e no Codex, para os planos Plus, Pro, Enterprise e Edu, e na API. O AI Agents Directory registra ainda que a Microsoft liberou o modelo para uso geral no Foundry, a plataforma dela para construir agentes.
 
-Terceiro: a economia dos agentes está mudando rápido. Modelos mais baratos de um lado, possíveis novas cobranças de infraestrutura do outro. Quem governa custo de IA precisa revisar as premissas com mais frequência.
+RAFA: Se um cliente perguntar se vale trocar de modelo, o que a gente diz?
 
-Esse foi o Radar desta semana. Bom treino, e até segunda que vem.
+CAMILA: Insight para levar ao cliente: o custo por tarefa está caindo rápido, então vale revisar o orçamento de IA a cada trimestre e testar o modelo menor antes de pagar pelo maior. Mas os números são dos próprios fabricantes. A recomendação é medir em casos reais do cliente, e não decidir pelo anúncio.
+
+RAFA: Segunda notícia, do Google. O Genie quatro, do DeepMind. Segundo o Tom's Guide, de vinte e oito de outubro, é um "modelo de mundo". Camila, o que é isso?
+
+CAMILA: Um modelo de mundo é uma IA que, a partir de uma frase, gera um ambiente virtual onde você pode se mover e interagir, como num jogo que nasce na hora. O Genie quatro permite mudar a cena digitando novos comandos enquanto a simulação roda, e gera áudio sincronizado, com música e som ambiente. O TechDogs menciona simulações de até dois minutos.
+
+RAFA: Dá para testar?
+
+CAMILA: Ainda não de forma ampla. Segundo o Tom's Guide, está em prévia de pesquisa para profissionais de áreas como games, educação, jornalismo e engenharia, e depois chega aos assinantes do plano Ultra. Não há data de lançamento geral. O uso mais imediato é prototipar: testar estilos e mecânicas de um jogo por prompt antes de escrever código.
+
+RAFA: Terceira: a Meta lançou o Muse, um agente pessoal, em Singapura. A fonte é o Channel News Asia, de vinte e oito de outubro.
+
+CAMILA: Um agente pessoal é um assistente que não só responde, mas faz coisas por você, como pesquisar, comparar e organizar compras, viagens e jantares. O Muse se conecta a serviços locais como Gmail, Instagram, Grab e Shopee. Entre os parceiros iniciais citados estão Agoda, Lazada, Singapore Airlines e Trip ponto com. O ponto de atenção, segundo o Zaobao, é que o lançamento acontece em meio à discussão sobre privacidade e salvaguardas.
+
+RAFA: Fechando o bloco, dois sinais do lado da infraestrutura. Os dois vêm do resumo semanal do AI Agent Store, então vale tratar com o cuidado de quem é um agregador.
+
+CAMILA: O primeiro: Oracle e Google anunciaram que as TPUs do Google vão rodar na nuvem da Oracle a partir de dois mil e vinte e sete. TPU é o chip que o Google criou para treinar e rodar IA, uma alternativa às placas da Nvidia. O segundo: o CEO da Nvidia, Jensen Huang, comentou a possibilidade de cobrar uma licença anual de cerca de dois mil dólares por placa, pelo software que roda os agentes.
+
+RAFA: Isso já está confirmado?
+
+CAMILA: Não. Segundo o próprio resumo, a Nvidia não confirmou quais produtos entrariam nem quando valeria. É um sinal de que o custo de infraestrutura para agentes pode ganhar uma nova camada de cobrança, e quem faz planejamento de custo de IA deveria acompanhar.
+
+RAFA: Camila, juntando o primeiro bloco: qual é o recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: o ritmo de lançamentos é alto, mas o que muda a decisão é custo e fornecedor. Há chip alternativo à Nvidia chegando, preço de modelo caindo e uma possível cobrança nova pelo software dos agentes. Por isso a arquitetura deve permitir trocar de modelo e de nuvem sem reescrever tudo.
+
+CAMILA: E sobre agentes pessoais, como o Muse: a pergunta de privacidade e de acesso a dados precisa vir antes da empolgação.
+
+# Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
+
+RAFA: Agora o aprofundamento. Começando por engenharia de software. A grande notícia é o GitHub, que no dia vinte e oito publicou um pacote de novidades do Copilot, no changelog oficial do GitHub.
+
+CAMILA: A principal novidade é a sessão de agente na nuvem, que você inicia pela janela de agentes do VS Code. Ela roda na infraestrutura do GitHub, então continua trabalhando depois que você fecha o notebook. E a mesma sessão pode ser retomada no VS Code, no aplicativo do Copilot, no celular, na web ou na linha de comando.
+
+RAFA: Ou seja, o agente vira um processo que trabalha enquanto você está fazendo outra coisa.
+
+CAMILA: Exatamente. E tem mais. O GitHub criou um componente chamado Agent Host, que mantém as sessões rodando independente da janela do editor, e um protocolo aberto, o Agent Host Protocol, para que outros desenvolvedores criem seus próprios clientes. Também entrou, em modo experimental, o uso de computador pelos agentes, com aprovação por aplicativo e possibilidade de a organização desligar por política.
+
+RAFA: E a comparação de modelos?
+
+CAMILA: É uma prévia interessante: você roda vários modelos em paralelo na mesma tarefa e vê os resultados lado a lado. Um modelo "juiz" pode recomendar a melhor solução, ou você pode pedir uma síntese que combine ideias das tentativas. Na prática, o desenvolvedor deixa de escolher o modelo no escuro.
+
+RAFA: Mas como esses agentes ganham ferramentas?
+
+CAMILA: Aí entra o MCP, sigla de Model Context Protocol. É um padrão aberto que funciona como uma tomada universal: qualquer ferramenta compatível, como Slack, Notion ou um banco de dados, pode ser plugada em qualquer agente compatível. O GitHub lançou, em prévia, um marketplace de skills, servidores MCP e plugins, e os administradores podem exigir ou bloquear plugins por política.
+
+RAFA: E para um cliente que já usa o Copilot, qual é o recado?
+
+CAMILA: Insight para levar ao cliente: o agente de código saiu do editor e foi para a nuvem. Então o assunto deixa de ser produtividade individual e vira política de plataforma: quais modelos, quais plugins e quais permissões. Quem ainda não tem essa política deveria começar agora.
+
+RAFA: E a Linux Foundation tem uma notícia que conversa direto com isso.
+
+CAMILA: Sim. No dia vinte e dois, segundo o comunicado da própria Linux Foundation, a Agentic AI Foundation, que reúne padrões abertos de agentes, recebeu quatro novos projetos. O Agent Skills, da Anthropic, é um formato aberto para empacotar instruções e scripts que o agente carrega sob demanda. O Open Responses, da OpenAI, é uma especificação para que modelos de empresas diferentes tenham a mesma interface. O OpenEnv, da Hugging Face, é para ambientes de treinamento. E o OpenSandbox, da Alibaba, é para executar código de agente de forma isolada.
+
+RAFA: E o que significa isso na prática?
+
+CAMILA: Que a fundação já tem dez projetos, contra três no lançamento, em dezembro de dois mil e vinte e cinco, e que empresas concorrentes estão entregando peças para um padrão comum. Para quem decide arquitetura, isso reduz o risco de ficar preso a um único fornecedor. Entre os projetos que já estavam lá estão o MCP, o A2A e o AGENTS ponto md.
+
+RAFA: E o que o cliente deveria perguntar ao fornecedor?
+
+CAMILA: Insight para levar ao cliente: perguntar se a plataforma de agentes fala MCP e A2A. Padrão aberto é a melhor proteção contra ficar preso a um único fornecedor, e é uma pergunta simples de fazer numa reunião de compra.
+
+RAFA: Você falou em sandbox duas vezes. Explica?
+
+CAMILA: Sandbox é uma caixa de areia: um ambiente isolado onde o código do agente roda sem poder tocar no resto do sistema. Como agentes escrevem e executam código sozinhos, isso virou uma categoria de produto. Segundo o resumo do AI Agent Store, a Akamai lançou um Agent Sandbox em beta, com bloqueio de saída de rede por padrão, e a Daytona levantou sessenta milhões de dólares, com valor de mercado de um bilhão, para infraestrutura desse tipo.
+
+RAFA: E tem um lado de segurança também, não é? Ainda no AI Agent Store, na página de agentes de código.
+
+CAMILA: Tem. O OpenCode, uma ferramenta de agente de código, divulgou uma violação que pode ter exposto chaves de API de terceiros salvas em cerca de um vírgula quatro por cento dos espaços de trabalho. A recomendação foi trocar as chaves e revisar o uso. A mesma página registra que o GitHub passou a oferecer uma API de política de modelos, para que administradores controlem quais modelos os agentes do Copilot podem usar, e que a Anthropic publicou atualizações do Claude Code focadas em isolamento e segurança.
+
+RAFA: Isso também vira recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: tratar o agente de código como software de terceiros com acesso privilegiado. Ambiente isolado, chaves guardadas em cofre e troca de chaves como rotina. O caso do OpenCode mostra que chaves salvas em ferramentas de agente são um risco real.
+
+RAFA: Vamos para arquitetura empresarial. A SAP anunciou muita coisa no evento TechEd. A fonte é o Techzine, de vinte e sete de outubro.
+
+CAMILA: O ponto central é o Joule Work, que ganha uma camada de orquestração: agentes coordenando tarefas de vários passos, usando dois protocolos, o MCP, que já expliquei, e o A2A. A2A é a sigla de agente para agente: um padrão para que agentes de empresas diferentes conversem e passem tarefas entre si.
+
+RAFA: E em governança?
+
+CAMILA: A SAP apresentou um Enterprise AI Gateway. Gateway é uma porta de entrada única: todo o tráfego de IA da empresa passa por ele, e ali se centralizam autenticação, regras, roteamento, monitoramento, registro de uso e auditoria. Há também um assistente de governança para ajudar a cumprir o AI Act, a lei europeia de IA. E o Joule Studio, onde os clientes constroem agentes, dá acesso a mais de setenta modelos e ganhou observabilidade de comportamento, de uso de modelos e de custos.
+
+RAFA: E a parte de dados?
+
+CAMILA: A SAP quer dar contexto de negócio aos agentes. Para isso, lançou um gerenciador de ontologia. Ontologia, aqui, é um mapa formal do significado dos dados da empresa: o que é cliente, pedido, contrato e como se relacionam. Assim o agente deixa de adivinhar. O Techzine não traz datas gerais de disponibilidade. Só informa que rodar agentes próprios no ambiente gerenciado da SAP é gratuito para clientes selecionados até dezembro.
+
+RAFA: Então, para quem está montando uma arquitetura de agentes, qual é o insight?
+
+CAMILA: Insight para levar ao cliente: antes de multiplicar agentes, definir um ponto único de controle, o gateway, e dar significado aos dados, a ontologia. Sem isso, cada agente vira uma exceção de segurança e uma fonte de respostas inconsistentes.
+
+RAFA: Falando em governança, a IBM anunciou algo na mesma linha, certo?
+
+CAMILA: Sim, no TechXchange, segundo o Channel Insider, de vinte e oito de outubro. O IBM Agent Identity chegou à disponibilidade geral. A ideia é tratar cada agente como uma identidade: um catálogo central com dono, nível de risco e ferramentas permitidas, e a delegação preservada, para que cada ação do agente seja ligada à pessoa ou sistema que o autorizou.
+
+RAFA: E o que é essa tal credencial de curta duração?
+
+CAMILA: Em vez de deixar uma senha fixa dentro do código ou do agente, o HashiCorp Vault, na versão dois ponto dois, emite credenciais temporárias, específicas para cada tarefa, que expiram sozinhas. E, se o agente sair do que foi autorizado, a sessão pode ser revogada em tempo real. A IBM também fala de um botão de emergência para conter agentes com mau funcionamento.
+
+RAFA: Por que a IBM está investindo nisso?
+
+CAMILA: A IBM cita dados do Gartner: uma empresa média da Fortune quinhentos deve operar mais de cento e cinquenta mil agentes até dois mil e vinte e oito, e apenas treze por cento das organizações acham que a governança atual de agentes é adequada. O artigo também lembra os custos: renovar credenciais o tempo todo exige infraestrutura, e políticas rígidas demais podem interromper processos no meio.
+
+RAFA: E aí entra a notícia mais comentada da semana, não é? A investigação da revista WIRED, do dia vinte e nove, relatada pelo Cyber Security News.
+
+CAMILA: Importante deixar claro: são alegações, e a Accenture contesta. Segundo a reportagem, um funcionário da Accenture teria conectado uma conta pessoal do Claude Code a um ambiente de produção numa rede não classificada do Departamento de Defesa americano, compartilhando credenciais. O agente teria operado por cerca de dois meses com privilégios de administrador, fazendo alterações em nome do funcionário, e teria enviado senhas e um mapa da rede para um site de terceiros.
+
+RAFA: E o que a Accenture diz?
+
+CAMILA: Que as alegações foram investigadas de forma independente e consideradas sem fundamento. O Pentágono não quis comentar, e não há indicação de que redes classificadas tenham sido acessadas. O artigo também não estabelece que alguém explorou uma falha conhecida. Independentemente do desfecho, o caso ilustra exatamente o que a IBM descreve: credenciais fixas, permissões demais e rede aberta para um agente.
+
+RAFA: Última notícia de governança: a SK Telecom, da Coreia do Sul, que o AI Agent Store registrou na segunda.
+
+CAMILA: A empresa publicou seu primeiro relatório de governança de IA e passou a tratar agentes como força de trabalho. Cada agente recebe número de identificação, supervisor humano e monitoramento de atividade, e quanto mais autonomia, mais sênior precisa ser o supervisor. Em linguagem de arquitetura, é identidade, responsabilidade e auditoria aplicadas a software que age sozinho.
+
+RAFA: E qual é a pergunta que abre essa conversa com o cliente?
+
+CAMILA: Insight para levar ao cliente: governança de agentes começa por inventário. Perguntar: quantos agentes você tem hoje, quem é o dono de cada um e o que cada um pode acessar? Se ninguém sabe responder, esse é o ponto de partida. Lembrando que o número do Gartner citado pela IBM, de mais de cento e cinquenta mil agentes por grande empresa até dois mil e vinte e oito, é uma projeção.
+
+# Fechamento — O que levar para os clientes
+
+RAFA: Para fechar, Camila: se um executive partner tiver dois minutos antes de falar com um cliente, o que ele deveria levar desta semana?
+
+CAMILA: Quatro insights. Primeiro: agentes saíram do experimento e estão virando infraestrutura. Rodam na nuvem, por horas, com acesso a sistemas. Então a conversa muda de "qual ferramenta de IA usar" para "como operar e governar agentes".
+
+CAMILA: Segundo: identidade primeiro. Cada agente precisa de dono, permissões mínimas e credenciais temporárias. A pergunta que abre a conversa é: quantos agentes você tem e quem responde por cada um?
+
+RAFA: Terceiro e quarto?
+
+CAMILA: Terceiro: padrões abertos, como MCP, A2A e Agent Skills, reduzem o risco de dependência e merecem entrar nos critérios de compra. Quarto: custo e fornecedor mudam rápido. Preços caem, mas podem surgir novas cobranças. Meça em casos reais e desenhe a arquitetura para poder trocar de modelo.
+
+RAFA: Esse foi o Radar de IA e Tecnologia desta semana. Os links de todas as fontes estão nas notas do episódio, junto com a lista dos insights. Bom treino, e até segunda que vem.
+
+CAMILA: Até a próxima!

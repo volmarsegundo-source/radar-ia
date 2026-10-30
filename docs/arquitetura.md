@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em texto (com links) e em áudio, para ouvir offline no iPhone e no Apple Watch, com custo zero e sem intervenção manual. O áudio é uma conversa de ~15 minutos entre dois apresentadores virtuais, em dois blocos: visão geral da IA no mundo e aprofundamento em engenharia de software e arquitetura empresarial.
+Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em texto (com links) e em áudio, para ouvir offline no iPhone e no Apple Watch, com custo zero e sem intervenção manual. O programa é um treinamento para os executive partners entregarem valor aos clientes. O áudio é uma conversa de ~18 minutos entre dois apresentadores virtuais, em dois blocos: visão geral da IA no mundo e aprofundamento em engenharia de software e arquitetura empresarial.
 
 ## Componentes
 
@@ -12,7 +12,7 @@ Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em
 | Repositório `radar-ia` | Guarda roteiros, notas, scripts e documentação | GitHub (público) |
 | Workflow `episodio.yml` | Gera o áudio, cria a Release e publica o feed | GitHub Actions |
 | `scripts/tts.py` | Converte o diálogo de `roteiro.txt` em um MP3 único, com uma voz por locutor | Google Cloud Text-to-Speech + ffmpeg |
-| `scripts/build_feed.py` | Monta `feed.xml` (notas em HTML, com links) e `index.html` a partir das Releases | Python (biblioteca padrão) + ffprobe |
+| `scripts/build_feed.py` | Monta `feed.xml` (notas em HTML, com links), a página do podcast (`index.html`) e uma página por episódio (`ep/<tag>/`) a partir das Releases | Python (biblioteca padrão) + ffprobe |
 | Releases (`ep-AAAA-MM-DD`) | Arquivo permanente dos MP3 | GitHub Releases |
 | GitHub Pages | Serve o feed e os últimos 12 episódios | `volmarsegundo-source.github.io/radar-ia` |
 | App Podcasts | Segue o feed e baixa os episódios (iPhone e Apple Watch) | Dispositivos do usuário |
@@ -53,15 +53,20 @@ Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em
 - **Transparência:** os apresentadores são virtuais; a abertura de cada episódio e a descrição do podcast dizem isso.
 - **Fontes:** citadas oralmente (nome e data) e listadas com links nas notas do episódio, que o app Podcasts exibe. O feed converte o markdown das notas em HTML limitado (parágrafos, listas, negrito, itálico, links), o que o app suporta.
 - **Implementação:** o Google TTS sintetiza um locutor por requisição, então cada fala é uma chamada; o script monta o áudio no próprio PCM (sem depender de concatenar MP3 de taxas diferentes). A síntese multilocutor do Gemini TTS foi descartada por ser paga. Não há fala sobreposta nem interrupções, apenas turnos, o que é adequado para um briefing.
-- **Tamanho:** 2.000 a 2.600 palavras (~13 mil caracteres, 14 a 17 minutos, ~7,5 MB); usa ~1,3% do nível gratuito mensal do Google TTS por episódio.
+- **Insights para clientes:** o público são executive partners que conversam com clientes. De 5 a 8 vezes por episódio, a CAMILA dá um recado prático começando por "Insight para levar ao cliente:", e o fechamento resume os 3 a 4 principais. São leitura editorial (avisada na abertura), baseada em fatos da fonte, com fontes públicas apenas; também aparecem em `notas.md`.
+- **Tamanho:** 2.400 a 3.000 palavras (~17 mil caracteres, 16 a 20 minutos, ~9 MB); usa ~1,7% do nível gratuito mensal do Google TTS por episódio.
 
 ### Roteiro pelo Claude, áudio pelo GitHub
 
 O Claude escreve o texto; a geração de áudio fica no GitHub Actions. Motivos: o ambiente do Claude não consegue baixar arquivos de áudio de provedores externos nem juntar partes de forma confiável, e o Actions permite reprocessar, versionar e inspecionar cada execução.
 
+### Página web do podcast
+
+O app Podcasts não tem página web própria para um feed privado, então `build_feed.py` gera uma: `index.html` (episódio mais recente com player, botões de assinar e lista de episódios) e `ep/<tag>/index.html` (player com voltar 15 s, avançar 30 s e velocidade, notas completas com links, botões de compartilhar). As páginas têm metadados Open Graph (capa, título e descrição), então o link aparece com prévia no WhatsApp, Teams e LinkedIn. É HTML estático, sem dependências; a posição de reprodução fica no navegador do ouvinte. O link de cada episódio também vai no `<link>` do item do feed.
+
 ### Feed público, sem listagem
 
-O repositório e o site são públicos (Pages gratuito exige repositório público). O feed tem `itunes:block`, para não aparecer em diretórios, mas qualquer pessoa com o endereço pode acessá-lo. O conteúdo são notícias públicas; nada confidencial deve entrar aqui.
+O repositório e o site são públicos (Pages gratuito exige repositório público). O feed tem `itunes:block` e as páginas têm `noindex`, para não aparecer em diretórios nem em buscadores, mas qualquer pessoa com o endereço pode acessá-los. O conteúdo são notícias públicas; nada confidencial deve entrar aqui.
 
 ## Limites e restrições conhecidos
 
