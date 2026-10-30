@@ -3,7 +3,7 @@ name: Gerar episódio e publicar feed
 on:
   push:
     branches: [main]
-    paths: ["episodes/**"]
+    paths: ["episodes/**", "scripts/**", "assets/**", ".github/workflows/episodio.yml"]
   workflow_dispatch:
 
 permissions:
@@ -39,10 +39,17 @@ jobs:
           TTS_RATE: ${{ vars.TTS_RATE }}
         run: |
           set -euo pipefail
+          removed=0
           for dir in episodes/*/; do
             ep=$(basename "$dir")
             tag="ep-$ep"
             [ -f "$dir/roteiro.txt" ] || continue
+            # Marcador "refazer": apaga a Release e a tag e gera o episódio de novo
+            if [ -f "$dir/refazer" ]; then
+              echo "refazendo: $tag"
+              gh release delete "$tag" --cleanup-tag --yes || true
+              git rm -q "$dir/refazer"; removed=1
+            fi
             if gh release view "$tag" >/dev/null 2>&1; then
               echo "já publicado: $tag"; continue
             fi
@@ -53,6 +60,12 @@ jobs:
             cp "$dir/episodio.mp3" "/tmp/$tag.mp3"
             gh release create "$tag" "/tmp/$tag.mp3" --title "$title" --notes-file /tmp/notas.md
           done
+          if [ "$removed" = 1 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -q -m "Remover marcador refazer"
+            git pull -q --rebase origin main && git push -q origin HEAD:main
+          fi
 
       - name: Montar site do podcast
         env:

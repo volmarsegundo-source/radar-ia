@@ -22,7 +22,7 @@ Entregar toda segunda de manhã um briefing das notícias de IA e tecnologia, em
 ## Fluxo de dados
 
 1. **Segunda 8h13.** A tarefa agendada pesquisa as notícias dos últimos 7 dias, publica o documento escrito com links e cria `episodes/AAAA-MM-DD/roteiro.txt` e `notas.md`. Faz commit e push na `main` (mensagem `Episódio AAAA-MM-DD`).
-2. **Gatilho.** O push em `episodes/**` dispara o workflow. Ele também pode ser disparado manualmente (`workflow_dispatch`) pela aba Actions.
+2. **Gatilho.** O push em `episodes/**`, `scripts/**`, `assets/**` ou no próprio workflow dispara o workflow (a sessão do Claude só consegue disparar por push). Ele também pode ser disparado manualmente (`workflow_dispatch`) pela aba Actions.
 3. **Áudio.** Para cada pasta em `episodes/` sem Release correspondente, `tts.py` lê o roteiro fala por fala (`RAFA:` / `CAMILA:`), sintetiza cada fala com a voz do locutor (falas acima de 4.500 bytes são divididas por frase; o limite da API é 5.000), decodifica tudo para PCM, insere pausas (0,35 s entre falas; 1,4 s entre blocos), normaliza o volume (~-19 LUFS, padrão de podcast mono) e codifica um MP3 mono, 44,1 kHz, 64 kbps. Roteiros sem rótulos são lidos por uma única voz (modo narrador).
 4. **Release.** O MP3 é anexado a uma Release `ep-AAAA-MM-DD`. O título vem da 1ª linha de `notas.md` e o corpo da Release são as notas.
 5. **Feed.** O workflow baixa os MP3 das 12 Releases mais recentes, `build_feed.py` gera `feed.xml` (RSS com tags iTunes, duração e tamanho reais) e `index.html`, e o GitHub Pages publica.

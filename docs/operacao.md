@@ -82,10 +82,16 @@ RAFA: ...
 
 ## Refazer um episódio
 
-O workflow ignora episódios que já têm Release. Para regerar:
+O workflow ignora episódios que já têm Release. Para regerar, sem abrir o GitHub:
 
-1. Em Releases, apague a Release `ep-AAAA-MM-DD` e também a tag com o mesmo nome (Tags › apagar).
-2. Edite `episodes/AAAA-MM-DD/roteiro.txt` (se necessário) e faça push na `main`; qualquer alteração em `episodes/**` dispara o workflow.
+1. Edite `episodes/AAAA-MM-DD/roteiro.txt` (se necessário) e crie um arquivo vazio `episodes/AAAA-MM-DD/refazer`.
+2. Faça push na `main`. O workflow apaga a Release e a tag, gera o áudio de novo, publica e remove o marcador sozinho.
+
+(Alternativa manual: apague a Release `ep-AAAA-MM-DD` e a tag em Releases/Tags e rode o workflow em Actions.)
+
+## Quando o workflow roda
+
+Em todo push na `main` que altere `episodes/**`, `scripts/**`, `assets/**` ou o próprio workflow. Mudar título, descrição ou visual da página (`scripts/build_feed.py`) republica o site sem gerar áudio novo, porque episódios com Release são ignorados.
 
 ## Rotação da chave do Google
 
