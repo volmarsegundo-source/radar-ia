@@ -1,0 +1,165 @@
+RAFA: Olá, eu sou o Rafa, e este é o Radar de IA e Tecnologia. Hoje é segunda-feira, dois de novembro, e a gente cobre a semana de vinte e seis de outubro a dois de novembro de dois mil e vinte e seis.
+
+CAMILA: Oi, eu sou a Camila. Antes de começar, um aviso importante: o Rafa e eu somos apresentadores virtuais, com vozes geradas por inteligência artificial. O conteúdo é pesquisado em fontes públicas, e os links de tudo que a gente citar estão nas notas do episódio.
+
+RAFA: A estrutura de hoje é simples. No primeiro bloco, a visão geral da IA no mundo. No segundo, a gente aprofunda em duas disciplinas: engenharia de software e arquitetura empresarial com IA. Sempre que aparecer um conceito novo, a Camila explica em linguagem simples.
+
+CAMILA: E tem mais uma combinação. Depois das notícias que mais importam, o Rafa vai perguntar qual é o recado para o cliente, e eu respondo com uma fala que sempre começa com "Insight para levar ao cliente". Isso é leitura editorial do programa, não a posição oficial de nenhuma empresa, tá?
+
+RAFA: Combinado. Vamos lá.
+
+# Bloco 1 — Visão geral da IA no mundo
+
+RAFA: Primeira notícia: a OpenAI começou a liberar, em vinte e seis de outubro, o GPT seis ponto um Terra. Segundo um resumo semanal publicado no site note ponto com, que cita as notas de versão da própria OpenAI, ele está na API, no ChatGPT Work e no Codex, mas não na aba de chat comum.
+
+CAMILA: E o detalhe que chama atenção é o preço. Ainda segundo esse resumo, a API cobra um dólar por milhão de tokens de entrada e cinco dólares por milhão de tokens de saída. Token é o pedacinho de texto que o modelo lê ou escreve, mais ou menos uma sílaba ou palavra curta. Pense nele como o litro de gasolina da IA: quanto mais você usa, mais paga.
+
+RAFA: Então preço de agente está caindo?
+
+CAMILA: Pelo menos esse modelo foi desenhado para trabalho de agentes, com preço agressivo. Um boletim semanal citou números de preço e velocidade ainda maiores, mas essa é informação de segunda mão, então eu ficaria com os dados das notas da OpenAI.
+
+RAFA: Qual é o recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: não amarre a solução a um único modelo. Preço e disponibilidade mudam de uma semana para outra. Pergunte ao cliente: se o preço ou a disponibilidade do seu modelo principal mudasse em trinta dias, o que você precisaria refazer?
+
+RAFA: Segunda notícia, e essa é um dos destaques da semana: o Google anunciou, em vinte e oito de outubro, o Gemini quatro Carbon, que chama de seu modelo mais forte, com foco em segurança cibernética e tarefas longas de programação.
+
+CAMILA: Segundo o blog do próprio Google, ele começa liberado só para um grupo de defensores de segurança, e o acesso se amplia aos poucos para parceiros de confiança pelo programa Fairwind. Esse formato, liberar primeiro para quem defende, eu chamo de acesso escalonado por confiança.
+
+RAFA: E o desempenho?
+
+CAMILA: O Google diz que o modelo acerta oitenta e oito vírgula dois por cento em um teste de achar vulnerabilidades e setenta e um por cento em corrigi-las. Atenção: são números da própria empresa, e eu não encontrei validação independente. O preço de introdução é dois dólares por milhão de tokens de entrada e dez de saída, subindo para quatro e vinte depois.
+
+RAFA: Dá para dormir tranquilo com um modelo que acha falhas tão bem?
+
+CAMILA: A mesma habilidade que ajuda quem defende pode ajudar quem ataca. Por isso a liberação gradual faz sentido.
+
+RAFA: Então, qual é o recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: o jogo vai ser corrigir rápido. Pergunte ao cliente quanto tempo passa, em média, entre uma falha conhecida e o patch chegar em produção.
+
+RAFA: Terceira: o Google DeepMind apresentou o Genie quatro, em vinte e sete de outubro. O que é isso, Camila?
+
+CAMILA: É um modelo de mundo. Imagine um modelo que, em vez de escrever texto, gera um ambiente interativo que você explora, como um videogame criado na hora. Segundo um boletim que resume a novidade, o Genie quatro agora tem áudio sincronizado e mantém a cena coerente por cerca de dois minutos, o dobro da versão anterior. É um sinal de pesquisa, ainda longe das decisões de um cliente.
+
+RAFA: Quarta: os balanços. O que a temporada mostrou?
+
+CAMILA: Segundo o boletim, a nuvem do Google cresceu cento e três por cento, o Azure da Microsoft quarenta e oito e a AWS da Amazon trinta e nove vírgula três. Ou seja, a demanda por IA é real. Só que o TechCrunch, em trinta de outubro, mostra o outro lado: Alphabet, Amazon, Meta e Microsoft planejam gastar mais de setecentos e quarenta bilhões de dólares em capex este ano.
+
+RAFA: Capex?
+
+CAMILA: É gasto de capital, o dinheiro investido em data centers, chips e energia. O TechCrunch conta que Alphabet e Amazon tiveram fluxo de caixa livre negativo, isto é, o caixa que sobra depois de pagar operação e investimentos ficou abaixo de zero. E que a ação da Alphabet teve o pior dia da história depois do balanço.
+
+RAFA: Então o mercado começou a duvidar?
+
+CAMILA: Começou a perguntar quando o investimento se paga.
+
+RAFA: E o que a gente diz ao cliente sobre isso?
+
+CAMILA: Insight para levar ao cliente: a pressão financeira dos fornecedores pode virar mudança de preço, de capacidade ou de prioridade. Pergunte ao cliente qual é o plano B se um fornecedor reajustar ou limitar o serviço.
+
+RAFA: Quinta notícia do bloco, ligada a essa: a Anthropic protocolou, na semana de vinte e seis de outubro, o pedido de abertura de capital na Nasdaq. O TechCrunch confirma o pedido.
+
+CAMILA: Os números vêm de um boletim que resume o documento, então trate com cuidado: receita de dezesseis vírgula três bilhões de dólares no primeiro semestre de dois mil e vinte e seis e prejuízo líquido de oitenta vírgula sete bilhões, em grande parte sem efeito no caixa. O TechCrunch também cita o Financial Times: a Blackstone teria alertado investidores de que a empresa talvez não consiga grau de investimento depois do IPO. Isso é informação de terceiros.
+
+RAFA: E o que isso muda para quem usa o Claude, por exemplo?
+
+CAMILA: Nada imediato. Mas dá transparência sobre a economia de um grande laboratório.
+
+RAFA: Qual é o recado prático para o cliente?
+
+CAMILA: Insight para levar ao cliente: risco de concentração em um fornecedor de modelo entra na avaliação de risco, qualquer que seja o fornecedor. Pergunte ao cliente se existe um plano de saída documentado para cada provedor crítico.
+
+# Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
+
+RAFA: Vamos para o segundo bloco, começando por engenharia de software. Em vinte e oito de outubro, o GitHub deixou o Copilot Fusion disponível para todos.
+
+CAMILA: Fusion é uma opção no seletor de modelos em que o sistema escolhe qual modelo, ou quais modelos, vão fazer cada tarefa. Tem modos como Single, Cascade, em que um modelo barato tenta primeiro e um mais forte entra se precisar, e Critique, em que um modelo revisa o outro. É como um gerente que distribui o trabalho entre especialistas.
+
+RAFA: E é bom?
+
+CAMILA: Segundo o GitHub, o nível máximo fica a até dois pontos do Claude Code com o Opus cinco ponto cinco Max em um índice de agentes de código, por cerca de metade do custo. Isso é alegação do GitHub, com um único índice, e a análise que li, no Beri ponto net, relata que alguns usuários nem viram a opção ainda.
+
+RAFA: Recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: roteamento multimodelo vai virar recurso padrão, então meça qualidade e custo nas suas próprias tarefas, e não nos números do fornecedor. Pergunte ao cliente se o time de engenharia tem um conjunto de tarefas reais para comparar ferramentas.
+
+RAFA: Próxima: em primeiro de novembro, segundo o Digital Trends, a DeepSeek lançou o Super-Agent.
+
+CAMILA: É um protótipo de código aberto, do time Harness da DeepSeek, que acompanha conversas de grupos de desenvolvedores, identifica problemas e sugere soluções sem ninguém pedir. É um agente proativo. O próprio veículo ressalta que é protótipo, sem dados de confiabilidade para trabalho complexo, então não é motivo para trocar de ferramenta.
+
+RAFA: Mas é uma tendência.
+
+CAMILA: É, e ela traz uma pergunta de governança: o que um agente que age sozinho pode fazer sem aprovação?
+
+RAFA: Falando em governança, a Cisco abriu o código do Project Quarry, em vinte e oito de outubro, segundo o The Register. Como funciona?
+
+CAMILA: A maioria das ferramentas olha cada passo do agente isolado: houve injeção de prompt? Quarry olha a sessão inteira. Exemplo: ler um arquivo sensível e, minutos depois, enviar algo para um servidor externo. Cada passo parece inofensivo, a sequência não. As regras lembram as do Snort e do YARA, formatos conhecidos de detecção em rede e em malware, e há plugins para Claude Code, Codex e agentes compatíveis com MCP.
+
+RAFA: MCP de novo. Explica rapidinho?
+
+CAMILA: MCP, Model Context Protocol, é um padrão aberto para conectar agentes a ferramentas e sistemas, tipo uma tomada universal. Voltando: o The Register diz que a Cisco não testou o Quarry no incidente que cita, e não há dados de falsos positivos nem avaliação independente.
+
+RAFA: Insight?
+
+CAMILA: Insight para levar ao cliente: segurança de agente é observabilidade de comportamento, não só filtro de prompt. Pergunte ao cliente se os registros dos agentes permitem reconstruir uma sessão do começo ao fim.
+
+RAFA: Mais uma de engenharia: em trinta de outubro, o uso de computador do Gemini chegou à disponibilidade geral, segundo as notas da API do Gemini.
+
+CAMILA: Uso de computador, ou computer use, é o modelo olhar a tela e operar mouse e teclado como uma pessoa. Serve para testar interfaces e automatizar sistemas antigos que não têm API. Agora está disponível de forma geral nas APIs Interactions e GenerateContent do Google.
+
+RAFA: Agora arquitetura empresarial. Voltando ao GitHub: o pacote Enterprise com Copilot, também de vinte e oito de outubro.
+
+CAMILA: Segundo a análise do Beri ponto net, o assento custa zero, mas não vem com créditos incluídos, e o uso é medido desde a primeira requisição. Cada crédito vale um centavo de dólar. O mesmo texto avisa que limites de orçamento só funcionam depois de ativados e que automações existentes ficam sem teto até alguém definir um limite. Lembrando que é análise de um veículo secundário.
+
+RAFA: Isso é FinOps, certo?
+
+CAMILA: Isso. FinOps de IA é gerir o dinheiro do consumo de IA: medir, definir orçamento e atribuir custo a quem usa. Antes era comum pagar por assento, valor fixo. Agora o custo varia com o uso.
+
+RAFA: Recado?
+
+CAMILA: Insight para levar ao cliente: assento a zero com consumo medido só é barato com teto de orçamento ativo. Pergunte ao cliente se ele enxerga hoje o gasto de IA por equipe e quem aprova o teto.
+
+RAFA: E ainda no tema custo: em vinte e nove de outubro, segundo as notas de versão da Claude Platform, a Anthropic lançou em beta uma API de análise de uso e custo.
+
+CAMILA: Ela mostra tokens e custo filtrados por modelo, workspace, chave de API e usuário, para organizações no Console e no Claude Enterprise. Já a OpenAI, segundo a página de limites de uso, anunciou em trinta e um de outubro que, a partir de dezembro, as cotas de ChatGPT e Codex nos planos Plus, Pro e Business serão compartilhadas. É um movimento claro de medir e dividir o consumo.
+
+RAFA: Antes de seguir, uma dúvida de ouvinte: por que medir o custo por usuário e por chave importa tanto?
+
+CAMILA: Porque sem isso ninguém sabe quem gastou o quê. É como uma conta de luz de condomínio sem medidor individual: todo mundo paga a média, e ninguém tem motivo para economizar. Com medição por equipe e por projeto, dá para negociar orçamento e cortar desperdício com base em dado.
+
+RAFA: Agora governança de agentes nas plataformas: em vinte e oito de outubro, ServiceNow e OpenAI ampliaram a parceria, segundo o comunicado da ServiceNow.
+
+CAMILA: Tem um plugin do ServiceNow dentro do ChatGPT para ações governadas, como atualizar registros ou avaliar risco de uma mudança. O plugin MCP já está no marketplace da OpenAI, mas o comunicado descreve boa parte do resto como plano: segurança em acesso antecipado em janeiro de dois mil e vinte e sete e disponibilidade geral prevista para o segundo trimestre. Termos financeiros não foram divulgados.
+
+RAFA: O que isso diz sobre arquitetura?
+
+CAMILA: Que o sistema de registro quer continuar sendo quem executa e audita as ações do agente. A ServiceNow afirma isso no comunicado, e é uma afirmação da empresa.
+
+RAFA: Então, qual é o recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: defina qual sistema valida a permissão e guarda a trilha quando um agente mexe em um registro. Pergunte ao cliente quem responde por essa trilha hoje.
+
+RAFA: Última notícia: em trinta de outubro, a DoorDash disse ter recebido poucas centenas de pedidos de agentes de terceiros, segundo o boletim.
+
+CAMILA: Para comparar, a empresa faz cerca de três milhões de entregas por dia. O boletim não informa a janela de tempo, e diz que a DoorDash está construindo as próprias ferramentas, incluindo um conector MCP de pedidos.
+
+RAFA: Então vale preparar a casa para agentes?
+
+CAMILA: Na prática, o canal de compras por agentes é incipiente, então faça piloto pequeno de interfaces para agentes, sem grande investimento. Pergunte ao cliente que parcela dos seus clientes já chega por agentes.
+
+# Fechamento — O que levar para os clientes
+
+RAFA: Camila, se um executive partner tiver uma conversa com cliente hoje, o que ele leva dessa semana?
+
+CAMILA: Quatro coisas. Primeira: modelos e preços mudam rápido e os fornecedores estão sob pressão financeira, então desenhe para poder trocar de modelo. A pergunta de abertura é: se o preço do seu modelo principal mudasse em trinta dias, o que você refaria?
+
+CAMILA: Segunda: custo de IA é variável, então FinOps entra na arquitetura desde o primeiro dia. Pergunte se o cliente enxerga o gasto por equipe e quem aprova o teto.
+
+CAMILA: Terceira: segurança de agentes é olhar a sessão inteira, e o ciclo de correção de vulnerabilidades precisa encurtar, porque os modelos estão ficando bons em achar falhas. Pergunte se o cliente consegue reconstruir uma sessão de agente e quanto tempo leva para aplicar um patch.
+
+CAMILA: Quarta: quando agentes agem em sistemas corporativos, alguém precisa responder pela permissão e pela trilha de auditoria. Pergunte qual sistema faz isso hoje. Lembrando que tudo isso é leitura editorial do programa, baseada em fontes públicas.
+
+RAFA: Bom treino, e até segunda que vem.
+
+CAMILA: Até lá! E lembre que todos os links estão nas notas do episódio, no aplicativo.
