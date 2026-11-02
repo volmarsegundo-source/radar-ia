@@ -82,7 +82,7 @@ CAMILA: Insight para levar ao cliente: ...
 - Linhas que começam com `# ` são marcadores de bloco: não são faladas e geram uma pausa longa.
 - Linhas sem rótulo continuam a fala anterior. Um roteiro sem nenhum rótulo é lido inteiro por uma voz (modo narrador).
 - Escreva para ser ouvido: frases curtas, números e siglas como devem ser lidos, sem URLs nem markdown.
-- O arquivo `notas.md` traz as notas do episódio (1ª linha = título; o resto vira a descrição no app, com listas, negrito e links).
+- O arquivo `notas.md` traz as notas do episódio (1ª linha = nome da Release; o título no app é montado pelo `build_feed.py` com número e período, veja `docs/arquitetura.md`; o resto vira a descrição no app, com listas, negrito e links).
 - Tamanho e marcação dos insights ("Insight para levar ao cliente:", fechamento) são definidos na tarefa agendada e em `CLAUDE.md`.
 - Para trocar as vozes, use as variáveis `TTS_VOICE_RAFA` e `TTS_VOICE_CAMILA` (seção Ajustes). As vozes Chirp 3 HD disponíveis estão na documentação do Google Cloud Text-to-Speech.
 

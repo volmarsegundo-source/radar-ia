@@ -11,10 +11,12 @@ import re
 import subprocess
 import sys
 import urllib.parse
-from datetime import datetime
+from datetime import date, datetime, timedelta
 from email.utils import format_datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+EPISODES_DIR = Path(__file__).resolve().parent.parent / "episodes"
 
 SHOW_TITLE = "Radar de IA &amp; Tecnologia: Engenharia de Software e Arquitetura"
 SHOW_DESC = ("Conversa semanal sobre IA com foco em dois domínios: engenharia de software e arquitetura "
@@ -120,6 +122,20 @@ def pt_date(dt: datetime) -> str:
     return f"{d.day} de {MESES[d.month - 1]} de {d.year}"
 
 
+def episode_info(tag: str, episodes_dir: Path) -> tuple[int, str, str]:
+    """Número do episódio (posição entre as pastas de episodes/) e período coberto.
+
+    O resumo cobre a semana anterior à data do episódio: de 7 dias antes até 1 dia antes
+    (episódio de 02/11 cobre 26/10 a 01/11).
+    """
+    day = date.fromisoformat(tag.removeprefix("ep-"))
+    dirs = sorted(d.name for d in episodes_dir.iterdir() if d.is_dir() and re.fullmatch(r"\d{4}-\d{2}-\d{2}", d.name))
+    number = dirs.index(day.isoformat()) + 1 if day.isoformat() in dirs else len(dirs) + 1
+    start, end = day - timedelta(days=7), day - timedelta(days=1)
+    period = f"{start:%d/%m} a {end:%d/%m/%Y}"
+    return number, period, f"Episódio {number} — Radar de IA: notícias de {period}"
+
+
 def intro_of(body: str) -> str:
     for line in body.splitlines():
         line = line.strip()
@@ -209,10 +225,13 @@ def main() -> None:
         url = f"{base}/audio/{mp3.name}"
         pub = datetime.fromisoformat(r["publishedAt"].replace("Z", "+00:00"))
         secs = duration(mp3)
-        body = r.get("body") or ""
+        number, period, title = episode_info(r["tagName"], EPISODES_DIR)
+        lead = f"Episódio {number} · Resumo das notícias de {period}."
+        raw = r.get("body") or ""
+        body = f"{lead}\n\n{raw}"
         notes = md_to_html(body)
         items.append(f"""    <item>
-      <title>{html.escape(r['name'])}</title>
+      <title>{html.escape(title)}</title>
       <link>{base}/ep/{r['tagName']}/</link>
       <guid isPermaLink="false">{r['tagName']}</guid>
       <pubDate>{format_datetime(pub)}</pubDate>
@@ -222,8 +241,8 @@ def main() -> None:
       <itunes:summary><![CDATA[{plain(body)}]]></itunes:summary>
       <description><![CDATA[{notes}]]></description>
     </item>""")
-        eps.append({"tag": r["tagName"], "title": r["name"], "date": pt_date(pub), "mins": max(1, round(secs / 60)),
-                    "audio": url, "url": f"{base}/ep/{r['tagName']}/", "intro": intro_of(body),
+        eps.append({"tag": r["tagName"], "title": title, "date": pt_date(pub), "mins": max(1, round(secs / 60)),
+                    "audio": url, "url": f"{base}/ep/{r['tagName']}/", "intro": f"{lead} {intro_of(raw)}",
                     "notes_web": md_to_html(body, web=True)})
 
     now = format_datetime(datetime.now().astimezone())

@@ -33,6 +33,7 @@ Feed: `https://volmarsegundo-source.github.io/radar-ia/feed.xml` · Página para
 - Vozes e velocidade: variáveis do repositório `TTS_VOICE_RAFA` (padrão `pt-BR-Chirp3-HD-Charon`), `TTS_VOICE_CAMILA` (padrão `pt-BR-Chirp3-HD-Kore`), `TTS_VOICE` (voz do modo narrador) e `TTS_RATE` (padrão `1.0`).
 - O repositório e o site são públicos (necessário para Pages gratuito). O feed tem `itunes:block`. Não colocar conteúdo confidencial.
 - Custo: ~17 mil caracteres por episódio; o nível gratuito do Google TTS é 1 milhão de caracteres por mês nas vozes Chirp 3 HD. O Higgsfield não é mais usado.
+- Título no feed/página: `Episódio N — Radar de IA: notícias de DD/MM a DD/MM/AAAA`, calculado em `scripts/build_feed.py` (N = ordem das pastas em `episodes/`; período = 7 a 1 dia antes da data do episódio). A descrição começa com número e período. Não depende da 1ª linha de `notas.md`.
 - O episódio `2026-10-30` é o episódio 1 (os testes anteriores foram apagados). Para mudar o visual da página web, edite `scripts/build_feed.py` (CSS e templates no próprio arquivo).
 
 ## Limitações do ambiente do Claude
