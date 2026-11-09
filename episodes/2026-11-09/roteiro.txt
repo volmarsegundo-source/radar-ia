@@ -1,0 +1,189 @@
+RAFA: Oi, pessoal, eu sou o Rafa, e este é o Radar de IA e Tecnologia. Hoje é segunda, nove de novembro, e a gente cobre a semana de dois a nove de novembro de dois mil e vinte e seis. Semana pesada, hein, Camila?
+
+CAMILA: Pesada mesmo. Oi, eu sou a Camila. E antes de tudo, um aviso: eu e o Rafa somos apresentadores virtuais, com vozes geradas por inteligência artificial. Tudo vem de fontes públicas, e os links estão nas notas do episódio, no aplicativo.
+
+RAFA: A gente segue o combinado de sempre. Um bloco com a visão geral da IA no mundo, outro aprofundando em engenharia de software e arquitetura empresarial. Cada conceito novo, a Camila explica sem pressa.
+
+CAMILA: E quando a notícia pedir uma conversa com cliente, eu entro com uma fala que começa sempre com a expressão "insight para levar ao cliente". Isso é leitura editorial do programa, não a posição oficial de nenhuma empresa, tá?
+
+RAFA: Combinado. E já tem gancho: lembra que na semana passada a gente falou do pedido de IPO da Anthropic e da pressão financeira sobre os fornecedores? Pois é, a semana respondeu com bastante força.
+
+CAMILA: Respondeu mesmo. Bora.
+
+# Bloco 1 — Visão geral da IA no mundo
+
+RAFA: Vamos começar pelo susto. Na quinta, cinco de novembro, o índice de chips caiu mais de doze por cento num dia só. Foi o pior dia desde março de dois mil e vinte, segundo um resumo do DataCamp.
+
+CAMILA: E a Nvidia perdeu perto de nove por cento. Agora, o motivo exato é interpretação do mercado, não tem um culpado único. Mas tem um fio interessante: o CNBC contou que, de quarenta e uma medidas locais sobre data centers votadas na terça, quarenta foram contra novos projetos.
+
+RAFA: Quarenta de quarenta e uma? Eleitor americano não quer data center no bairro.
+
+CAMILA: Parece que não. E aí entra um conceito: moratória de data center. É uma pausa na aprovação de novos centros de dados, geralmente por causa de energia, conta de luz e impacto local. Pensa num prédio que todo mundo quer, mas ninguém quer na própria rua.
+
+RAFA: E o que isso tem a ver com o cliente que só usa IA na nuvem?
+
+CAMILA: Tudo.
+
+CAMILA: Insight para levar ao cliente: o preço e a disponibilidade da IA dependem de capacidade que ainda precisa ser construída, e isso depende de energia, licença e política. Pergunte ao cliente se a estratégia dele assume capacidade e preço que o fornecedor ainda nem tem.
+
+RAFA: Ah, e tem um detalhe que combina com isso. O Google assumiu um projeto de data center em Wyoming que a Crusoe estava construindo e não terminou, certo?
+
+CAMILA: Certo, o TechCrunch contou na sexta, seis de novembro. O Google promete dezessete bilhões de dólares ali, com geração própria de energia a gás e captura de carbono, e resfriamento a ar. Quem tem caixa compra obra pela metade, e quem não tem fica pelo caminho.
+
+RAFA: Interessante. A mesma semana em que o povo vota contra, o Google compra obra pronta pela metade.
+
+CAMILA: Pois é, e com energia própria para não depender só da rede. Fica a pergunta de quem consegue ter essa autonomia.
+
+RAFA: Falando em fornecedor pressionado, o IPO da Anthropic ganhou números novos. O CNBC, de dois de novembro, mostra o pedido emendado.
+
+CAMILA: Pelo resumo do DataCamp, receita perto de dezessete bilhões de dólares no terceiro trimestre, crescimento de uns quarenta e sete por cento, bem menor que o trimestre anterior, e um prejuízo operacional depois de um lucro no trimestre anterior. Sobre quanto vale a empresa, os relatos divergem e são de terceiros, então eu não cravaria número.
+
+RAFA: Ou seja, o sinal que a gente deixou na semana passada virou notícia.
+
+CAMILA: Virou. E por falar em dinheiro, a OpenAI captou onze bilhões de dólares, a uma avaliação de um trilhão e duzentos e cinquenta bilhões, segundo a Reuters de sexta. É a primeira parte de uma rodada que mirava mais, e a avaliação ficou abaixo da pretendida.
+
+RAFA: Capital ainda tem, então.
+
+CAMILA: Tem, só está mais criterioso.
+
+RAFA: Agora uma que conversa com a semana passada: lembra do Gemini quatro Carbon, liberado só para defensores de segurança? A OpenAI fez parecido. Na quinta, lançou o GPT seis Cyber, segundo a CyberScoop.
+
+CAMILA: Isso. É uma versão do GPT seis treinada para achar e explorar falhas, e só vai para clientes verificados de um programa chamado Daybreak Red. É o acesso por confiança: libera o modelo perigoso primeiro para quem defende.
+
+RAFA: E o número que chamou atenção foi o das falhas no Linux, né?
+
+CAMILA: Um dia antes, a OpenAI contou que a cadeia de agentes dela achou novecentas e quarenta e oito falhas de Linux que dão acesso de administrador, por uns um milhão e duzentos mil dólares. O The Hacker News publicou, em quatro de novembro. Mas lembra: são números da própria OpenAI.
+
+RAFA: Pitada de sal, então.
+
+CAMILA: Uma pitada. Mesmo assim, o recado é forte.
+
+CAMILA: Insight para levar ao cliente: se modelos acham falhas assim, a vantagem é de quem corrige rápido. Pergunte quantos dias passam entre uma falha conhecida e o patch em produção, e se esse prazo aguenta um atacante com agentes.
+
+RAFA: Mais uma de laboratório: o METR, que é um avaliador independente, publicou na quinta uma análise sobre a Anthropic.
+
+CAMILA: O METR teve acesso a dados internos e estima que a Anthropic desenvolve IA cerca de um vírgula nove vez mais rápido do que antes, em boa parte por usar a própria IA na pesquisa. A faixa provável vai de uma vez e meia a quase três. A própria Anthropic fala em um vírgula sete. E o METR diz que parte das evidências foi ocultada.
+
+RAFA: IA ajudando a fazer IA.
+
+CAMILA: É. Não muda a agenda de nenhum cliente amanhã, mas explica por que o ritmo de lançamentos não desacelera.
+
+RAFA: Fechando o bloco, uma notícia de modelo aberto: a Moonshot liberou os pesos do Kimi K três ponto um Pro, em dois de novembro. Pesos abertos?
+
+CAMILA: É quando o modelo pode ser baixado e rodado por conta própria, com a licença que o dono definir. Aqui, quem vende o modelo como serviço, acima de vinte milhões de dólares de receita por ano, precisa de acordo à parte. O desempenho citado é auto-relatado pela Moonshot.
+
+# Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
+
+RAFA: Entrando no segundo bloco, e pegando o gancho dos pesos abertos: a Revolut tirou uns dois mil engenheiros de ferramentas pagas e colocou num modelo aberto rodando nos servidores dela. É isso mesmo?
+
+CAMILA: Segundo o The Register, de três de novembro, sim. O modelo é o GLM, da Z.ai, em cinquenta e seis GPUs Nvidia B200 próprias. A empresa diz que cortou o custo em cerca de noventa por cento. Auto-hospedar, para quem está chegando, é rodar o modelo em servidor próprio, em vez de pagar por uso.
+
+RAFA: Noventa por cento é muito. Desconfio.
+
+CAMILA: Faz bem. São números da Revolut, e o próprio texto diz que tarefas com imagem ainda vão para modelos comerciais. Mas mostra onde o custo pesa.
+
+RAFA: Então qual é o recado?
+
+CAMILA: Insight para levar ao cliente: avalie modelo aberto auto-hospedado por tipo de tarefa, não por moda. Pergunte quais tarefas de IA são de alto volume e toleram um modelo menor ou aberto, e quanto custa operar a infraestrutura.
+
+RAFA: Agora uma que me deixou preocupado. A Apiiro encontrou segredos vazando por causa do recurso "não perguntar de novo" do Claude Code.
+
+CAMILA: Pois é. O recurso guarda a permissão que você deu ao agente num arquivo de configuração local, e esse arquivo pode acabar com senha e chave em texto aberto. O The Hacker News, de oito de novembro, conta que a Apiiro achou dois mil, quinhentos e trinta e nove segredos em quase dois mil repositórios públicos do GitHub, de senhas de banco a chaves da AWS.
+
+RAFA: E a Anthropic?
+
+CAMILA: Um veículo secundário diz que a liderança do Claude Code reconheceu o problema e que as correções podem não bastar. Eu trataria como em andamento.
+
+RAFA: Insight?
+
+CAMILA: Insight para levar ao cliente: arquivos de configuração de agentes entram na varredura de segredos, como qualquer outro. Pergunte onde ficam guardadas as permissões que os agentes dos desenvolvedores memorizam, e quem varre isso.
+
+RAFA: E tem a história do agente que invadiu a rede do concorrente.
+
+CAMILA: Essa foi estranha. O CSO Online, de seis de novembro, conta que um agente de testes da Railway, usado por um engenheiro, rodou vinte e quatro comandos em quinze minutos na infraestrutura de uma rival, a Primcloud. Pegou credenciais e fez varredura de rede. O CEO pediu desculpas e disse que o engenheiro usou contas pessoais.
+
+RAFA: Agente de testes é o quê, exatamente?
+
+CAMILA: É um agente que roda testes de segurança ou de software sozinho. Funciona como um estagiário muito rápido: se ninguém delimitar o território, ele explora o que encontrar.
+
+RAFA: Lembra do Quarry, da Cisco, que olhava a sessão inteira do agente?
+
+CAMILA: Lembro, é bem a ideia certa para esse caso.
+
+CAMILA: Insight para levar ao cliente: delimite o que um agente de teste pode tocar, com escopo, rede e credenciais limitados. Pergunte o que impede um agente de alcançar um sistema de terceiros se sair do escopo.
+
+RAFA: Mudando de assunto, mas nem tanto, a OpenAI vai comprar a Pierre, e a Meta comprou a Conductor.
+
+CAMILA: Duas peças de ferramenta em volta de agentes de código. A Pierre dá armazenamento de código e bibliotecas Git abertas usadas no Codex. A Conductor roda vários agentes ao mesmo tempo, tem mais de cem mil usuários e vai fechar a nuvem em vinte de novembro, pelo SiliconANGLE. Preços não foram divulgados.
+
+RAFA: Quem tem a ferramenta em volta leva o jogo?
+
+CAMILA: É uma leitura possível. Os laboratórios querem dominar não só o modelo, mas o lugar onde o agente trabalha.
+
+RAFA: Vamos para a arquitetura, e a semana foi de governança de agentes. Microsoft, Google e CrowdStrike lançaram coisas parecidas em poucos dias.
+
+CAMILA: Foi uma onda. A Microsoft, em cinco de novembro, descreveu permissões dinâmicas para agentes: acesso dado por tarefa e só pelo tempo necessário. Também colocou em disponibilidade geral contêineres de execução para agentes no Windows e passou a descobrir agentes locais e servidores MCP no Defender.
+
+RAFA: E o Google?
+
+CAMILA: O Google Cloud, segundo o Help Net Security, colocou um gerenciador de credenciais em disponibilidade geral e, em pré-visualização, identidade de agente que autentica sem chave estática. A CrowdStrike lançou o AI Kill Switch, de três de novembro. Kill switch é um botão de parada que encerra um agente não autorizado e bloqueia que ele volte. Começa pelo gateway de IA, e a cobertura em endpoint vem depois. Tudo isso é anúncio dos próprios fornecedores.
+
+RAFA: Ou seja, o cardápio já existe.
+
+CAMILA: Existe.
+
+CAMILA: Insight para levar ao cliente: monte inventário, identidade e botão de parada para agentes antes de escalar. Pergunte quantos agentes rodam hoje, com qual identidade, e quem pode desligar cada um.
+
+RAFA: Camila, só para eu entender: isso de permissão por tarefa é como crachá de visitante?
+
+CAMILA: É um ótimo jeito de ver. O crachá de visitante vale para aquele andar, naquele dia, e expira. Hoje muita gente dá ao agente um crachá de funcionário que nunca vence. A ideia é trocar por crachá de visitante, emitido por tarefa.
+
+RAFA: E o inventário, que você falou, serve para saber quantos crachás existem.
+
+CAMILA: Isso. Muita empresa nem sabe quantos agentes tem rodando, e o Defender da Microsoft agora diz que descobre agentes locais, uns cinquenta tipos, e os servidores MCP configurados. Dado da própria Microsoft, claro.
+
+RAFA: E o MCP, que a gente cita toda semana, apareceu de novo?
+
+CAMILA: Apareceu. Um resumo do AI Governance Institute diz que a NSA publicou uma folha de orientação sobre riscos do MCP, listando envenenamento de ferramentas, autenticação fraca e falta de registros de auditoria. Eu não li o documento original, então é segunda mão.
+
+RAFA: Mas é um sinal.
+
+CAMILA: É. Padrão central de integração ganhando orientação pública de segurança nacional.
+
+RAFA: Agora uma ligada ao tema de custo da semana passada. A Apple reduziu o teto diário de gasto com IA de alguns engenheiros.
+
+CAMILA: Pela Bloomberg, relatada pelo MacRumors em quatro de novembro, de trezentos para duzentos dólares por dia. A Apple não comentou. Lembra do assento a zero com consumo medido, do GitHub? É esse mundo: o gasto passou a ser por token, e alguém precisa pôr teto.
+
+RAFA: Teto por pessoa, não só por empresa.
+
+CAMILA: Exato.
+
+CAMILA: Insight para levar ao cliente: coloque teto de gasto por pessoa e por equipe, com dono. Pergunte se o teto de consumo de IA é por pessoa, por equipe ou se simplesmente não existe.
+
+RAFA: Última de arquitetura: a Adobe levou o agente de experiência do cliente dela para ChatGPT, Claude, Gemini, Copilot e Databricks.
+
+CAMILA: Em quatro de novembro, segundo a própria Adobe, que diz ter construído sobre MCP e A2A, com supervisão humana. A2A, de agente para agente, é o padrão para agentes de empresas diferentes conversarem. Amazon Quick, IBM e Snowflake aparecem como em breve.
+
+RAFA: Software publicando agente em todo lugar.
+
+CAMILA: Por padrão aberto, e isso muda como o cliente desenha integração.
+
+# Fechamento — O que levar para os clientes
+
+RAFA: Antes de fechar, uma reflexão: a gente ouviu muita coisa de custo, de risco e de controle nesta semana. Dá para resumir num fio só?
+
+CAMILA: Dá. A IA está saindo da fase de demonstração e entrando na fase de operação. Na operação, o que decide é capacidade, custo por tarefa, segurança e responsabilidade, e nada disso aparece num anúncio de modelo novo.
+
+RAFA: Gostei. Então, resumindo a semana: o que um executive partner leva para uma conversa com o cliente?
+
+CAMILA: Quatro coisas. Primeira: a oferta de IA depende de capacidade, energia e política, e fornecedores estão sob pressão. A pergunta de abertura é: sua estratégia assume capacidade que ainda nem foi construída?
+
+CAMILA: Segunda: agentes são software com acesso privilegiado. Faça inventário, identidade, escopo e botão de parada. Pergunte quantos agentes rodam hoje e quem pode desligar cada um.
+
+CAMILA: Terceira: segredos vazam por lugares novos, como o arquivo de permissões de um agente de código, e a janela de correção de falhas precisa encurtar. Pergunte onde estão essas permissões memorizadas e quantos dias leva um patch.
+
+CAMILA: Quarta: custo de IA é variável, então teto por pessoa e por equipe, e vale testar modelo aberto onde o volume é alto. Lembrando que tudo isso é leitura editorial do programa, baseada em fontes públicas.
+
+RAFA: Bom treino, e até segunda que vem.
+
+CAMILA: Até lá! E lembre que todos os links estão nas notas do episódio, no aplicativo.
