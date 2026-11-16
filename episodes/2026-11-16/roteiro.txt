@@ -1,0 +1,207 @@
+RAFA: Oi, pessoal, eu sou o Rafa, e este é o Radar de IA e Tecnologia. Hoje é segunda, dezesseis de novembro, e a gente cobre a semana de nove a dezesseis de novembro de dois mil e vinte e seis. Camila, preparada?
+
+CAMILA: Sempre. Oi, eu sou a Camila. Primeiro o aviso de praxe: eu e o Rafa somos apresentadores virtuais, com vozes geradas por inteligência artificial. Tudo aqui vem de fontes públicas, e os links estão nas notas do episódio, no aplicativo.
+
+RAFA: O combinado de sempre. Um bloco com a visão geral da IA no mundo, e outro aprofundando em engenharia de software e arquitetura empresarial. E cada conceito novo, a Camila explica sem pressa.
+
+CAMILA: E quando a notícia pedir uma conversa com cliente, eu entro com uma fala que começa com "Insight para levar ao cliente". Isso é leitura editorial do programa, tá? Não é a posição oficial de nenhuma empresa.
+
+RAFA: Combinado. E já tem gancho: semana passada a gente falou do pedido de IPO da Anthropic e do agente de testes da Railway que invadiu a rede de um concorrente. Pois é, os dois voltam hoje.
+
+CAMILA: Voltam mesmo. Bora.
+
+# Bloco 1 — Visão geral da IA no mundo
+
+RAFA: Vamos começar pelo lançamento que mais fez barulho. Na segunda passada, nove de novembro, a Anthropic anunciou o Claude Fable cinco ponto dois e o Mythos cinco ponto dois. Dois nomes, dois modelos?
+
+CAMILA: Dois nomes, um modelo só por baixo. A diferença é quem pode usar. O Fable vem com travas de segurança em cibersegurança e biologia, e está liberado para todo mundo. O Mythos fica só para organizações verificadas.
+
+RAFA: Tipo uma faca de cozinha que só o chef pode usar?
+
+CAMILA: Ótima analogia. Mesma faca, outra permissão. Lembra do acesso por confiança, que a gente explicou semana passada com o GPT seis Cyber? É a mesma lógica.
+
+RAFA: E o desempenho? Melhorou muito?
+
+CAMILA: A tabela é da própria Anthropic, então pitada de sal. Ela mostra o Fable à frente do Opus cinco ponto cinco em código e em uso de computador. Curioso é que a empresa recomenda o Opus como modelo do dia a dia.
+
+RAFA: Sério? O mais forte não é o padrão?
+
+CAMILA: Não. Custa oito dólares por milhão de tokens de entrada e quarenta de saída. É para a tarefa difícil, não para tudo.
+
+RAFA: Token, pra quem chegou agora, é aquele pedacinho de texto que o modelo lê e escreve, certo?
+
+CAMILA: Isso, e é a unidade de cobrança. Dá para pensar como o litro de gasolina do modelo. Quanto mais ele lê e escreve, mais você abastece.
+
+RAFA: Então vamos para a outra gigante. O Google liberou o Gemini quatro Carbon para todo mundo, na terça, dez de novembro, certo?
+
+CAMILA: Certo, no blog oficial do Google. Antes ele só estava com defensores de segurança. E tem um detalhe de preço: até trinta de novembro, dois dólares de entrada e dez de saída. Depois, o dobro.
+
+RAFA: Promoção com data para acabar.
+
+CAMILA: Exato. E li num resumo semanal que o Google lançou na quinta o Gemini quatro Hydrogen, mais barato e rápido. Não abri o anúncio original, então trate como informação de agregador.
+
+RAFA: Dava para fazer uma conta dessas na cabeça do cliente, né? Preço promocional vira preço cheio.
+
+CAMILA: Insight para levar ao cliente: não planeje o orçamento de IA em cima de preço promocional. Pergunte ao cliente qual seria o custo do projeto se o preço do modelo dobrasse no mês seguinte, e quem monitora isso.
+
+RAFA: Agora o assunto que voltou da semana passada: o IPO da Anthropic. O que mudou?
+
+CAMILA: Segundo a Fortune, de dez de novembro, começou o roadshow. Roadshow é a turnê em que a empresa apresenta o negócio a investidores antes de abrir o capital. A faixa é de setenta a setenta e oito dólares por ação, o que daria até um trilhão e quatrocentos bilhões de valor de mercado.
+
+RAFA: E a receita?
+
+CAMILA: A emenda ao prospecto fala em receita anualizada perto de oitenta e um bilhões no fim de outubro, contra cerca de setenta e um no fim de setembro. Receita anualizada, o run rate, é o mês atual multiplicado por doze. É dado da empresa.
+
+RAFA: E o mercado ajudou?
+
+CAMILA: Nem tanto. A Fortune conta que o Nasdaq caiu cinco e meio por cento na semana anterior. E o prospecto avisa que a empresa pode se aproximar de um limiar de progresso acelerado por IA, aquele tema que o METR mediu na semana passada.
+
+RAFA: Falando em abalo, tem a Nvidia. Na quinta, doze, o Jensen Huang deixou o cargo de CEO. Foi isso?
+
+CAMILA: Foi, segundo a CBS News. O conselho anunciou a saída imediata em meio a uma investigação sobre um relacionamento pessoal que autoridades americanas suspeitam estar ligado a espionagem. A própria CBS diz que não verificou as acusações. A CFO, Colette Kress, assumiu como CEO interina.
+
+RAFA: E a ação?
+
+CAMILA: Fechou em queda de quatro por cento naquele dia. Sem entrar no mérito das acusações, o fato é que a maior fornecedora de chips ficou sem o fundador no comando do dia para a noite.
+
+RAFA: Isso mexe com cliente?
+
+CAMILA: Mexe, porque a conversa é sobre concentração.
+
+CAMILA: Insight para levar ao cliente: fornecedor de IA é uma cadeia, e a cadeia tem pontos únicos de falha, de empresas a pessoas. Pergunte qual é o plano de contingência se o seu principal provedor de modelo ou de chips enfrentar uma crise de governança ou de oferta.
+
+RAFA: Mudando de lado do Atlântico: a Europa fez uma cúpula de IA na sexta, treze de novembro.
+
+CAMILA: Informal, no contexto do Conselho Europeu, segundo o Sofia Globe, de catorze de novembro. Falaram de sete gigafábricas de IA e de cerca de trinta bilhões de euros mobilizados, sem dizer se é dinheiro novo.
+
+RAFA: Gigafábrica de IA parece nome de filme.
+
+CAMILA: Parece mesmo, mas é um centro de computação em larga escala, com muitos chips, para treinar e rodar modelos na Europa. Von der Leyen disse que a soberania tecnológica exige ao menos quinhentos bilhões de euros. É estimativa dela.
+
+RAFA: E tem regra a caminho?
+
+CAMILA: Tem proposta. Uma análise do escritório Freshfields, de setembro, descreve o Cloud and AI Development Act, com níveis de soberania para provedores de nuvem, inclusive um que barra controle de países de fora. Mas é proposta, e a negociação só deve começar em dois mil e vinte e sete.
+
+RAFA: Ou seja, ninguém precisa mudar nada amanhã.
+
+CAMILA: Amanhã, não. Mas quem atende banco, governo ou saúde na Europa deveria começar a mapear onde estão os dados e quem controla a nuvem. Planejar cedo sai mais barato do que migrar com prazo apertado.
+
+RAFA: Faz sentido. A gente volta nesse assunto quando a Comissão apresentar o trabalho sobre os setores, daqui a umas duas semanas.
+
+# Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
+
+RAFA: Entrando no segundo bloco, e voltando ao Fable. A Anthropic diz que mais de noventa por cento das mudanças no código principal dela são escritas pelo Claude.
+
+CAMILA: Com orientação humana, e é alegação da empresa. Mas ela mostrou um caso curioso: mil agentes formalizando o Último Teorema de Fermat em Lean, em trinta horas. Lean é uma linguagem em que a prova é conferida por máquina.
+
+RAFA: Ou seja, em vez de confiar, verifica.
+
+CAMILA: Isso. Se o agente escreve a maior parte, o gargalo muda de escrever para verificar. E testes, revisão e verificação formal viram o centro do processo.
+
+RAFA: Pensei em outra coisa: o Google também falou de orquestração, né?
+
+CAMILA: Sim. No Antigravity, o ambiente de código do Google, o Carbon trouxe o comando barra swarm, em prévia, que coordena vários agentes ao mesmo tempo. E o resumo semanal diz que o Hydrogen traz um Orchestrator para alternar entre modelos. Esse último, de agregador.
+
+RAFA: Um time de agentes, com um chefe de fila.
+
+CAMILA: Exato. Tendência da semana: sai o assistente isolado, entra a equipe de agentes.
+
+RAFA: Agora a que me deixou desconfortável. A Cursor confirmou uma invasão que levou a uma extensão maliciosa do Claude Code. Como foi isso?
+
+CAMILA: O BleepingComputer contou na sexta, treze, e publicou no sábado, catorze. Segundo a Cursor, tudo começou com uma chave de acesso roubada de um fornecedor de infraestrutura, a Fireworks. Os atacantes copiaram dados com traços antigos de agentes de código, alguns com credenciais sem proteção.
+
+RAFA: E a extensão?
+
+CAMILA: Em vinte e nove de outubro, publicaram no marketplace da Cursor duas versões falsas da extensão do Claude Code. Ficaram no ar cerca de onze horas. A Cursor estima que até cinco mil usuários possam ter baixado. Os números são da empresa, e a Cursor diz que a extensão oficial da Anthropic não foi afetada.
+
+RAFA: Marketplace é a loja de extensões do editor, certo?
+
+CAMILA: Isso, a lojinha de plugins. E o código malicioso tentava instalar acesso remoto por SSH, mas erros de programação provavelmente impediram em muitos computadores.
+
+RAFA: Pelo menos isso. E a Railway, que você falou na abertura?
+
+CAMILA: A reportagem cita a Railway no contexto dessa onda de ataques, que a Wiz chama de Black October. É outro episódio, mas mostra que o ecossistema de ferramentas de agentes virou alvo.
+
+RAFA: Então qual é o recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: extensão de editor e traço de agente são parte da cadeia de suprimento de software. Pergunte quem aprova as extensões que os desenvolvedores instalam, se versões são travadas, e se os registros de sessão dos agentes passam por varredura de segredos.
+
+RAFA: Agora para o lado das plataformas: a IBM e a Microsoft lançaram uma plataforma juntas.
+
+CAMILA: Na terça, dez, em comunicado da IBM. Chama Imagine Enterprise, uma plataforma para construir, operar e governar agentes que executam processos de setores específicos. Começa por serviços financeiros, seguros e varejo.
+
+RAFA: E o que vem dentro?
+
+CAMILA: A IBM diz que traz mais de seis mil agentes e ativos pré-construídos pela consultoria dela, sobre tecnologias da Microsoft, como Foundry, Copilot Studio, Entra e Purview. Tudo alegação das empresas. O texto não traz preço nem data de disponibilidade geral.
+
+RAFA: Quer dizer, é produto ou é serviço de consultoria?
+
+CAMILA: Boa pergunta, é essa mesmo.
+
+CAMILA: Insight para levar ao cliente: plataforma de agentes setorial entregue por consultoria mistura produto e serviço. Pergunte o que vem pronto, o que é projeto, quem opera depois, e onde ficam identidade e auditoria dos agentes.
+
+RAFA: Outra parceria do tema: a OpenAI e a Databricks, publicada em treze de novembro.
+
+CAMILA: No blog da Databricks. Eles descrevem três formas de usar GPT com dados governados: ChatGPT com um plugin chamado Genie para usuários de negócio, o Codex com governança por um gateway, e modelos GPT dentro da plataforma para construir agentes.
+
+RAFA: E o que é esse Genie Ontology que apareceu?
+
+CAMILA: Ontologia soa difícil, mas é simples: é o dicionário de negócio da empresa. O que é cliente ativo, como se calcula receita, quais são as métricas oficiais. Sem isso, dois agentes podem dar duas respostas diferentes para a mesma pergunta.
+
+RAFA: Como dois colegas que calculam margem de jeitos diferentes.
+
+CAMILA: Exatamente. E o artigo da InfoWorld, de onze de novembro, vai na mesma linha. É opinião do autor, Isaac Sacolick, mas o argumento é bom: MCP e A2A, que a gente já explicou por aqui, resolvem conexão, e não governança.
+
+RAFA: Quatro camadas, ele diz?
+
+CAMILA: Isso: identidade e autorização, contexto, redesenho do processo e operação dos agentes. O texto cita uma projeção da Gartner, de mais de cento e cinquenta mil agentes numa empresa média da Fortune quinhentas em dois anos. É projeção, não fato.
+
+RAFA: Cento e cinquenta mil? Aí ninguém sabe quem é quem.
+
+CAMILA: Insight para levar ao cliente: antes de multiplicar agentes, defina o dicionário de negócio e a identidade deles. Pergunte onde estão as definições oficiais das métricas que os agentes usam, e quem aprova uma mudança nelas.
+
+RAFA: E tem uma novidade que mexe com o bolso: a OpenAI lançou o ChatGPT Wallet.
+
+CAMILA: Em treze de novembro, segundo um agregador. Não consegui abrir o anúncio da OpenAI, então vale conferir. A ideia é o agente pagar sem ver o número do cartão, com aprovação do usuário a cada compra, por biometria, e parceiros como American Express, Mastercard e Visa. Começa para assinantes Pro nos Estados Unidos.
+
+RAFA: Lembra do botão de parada que a gente falou semana passada?
+
+CAMILA: Lembro. É o mesmo raciocínio: o agente pode agir, mas existe um ponto em que o humano aprova, e uma credencial que nunca fica exposta.
+
+CAMILA: Insight para levar ao cliente: quando o agente puder gastar dinheiro, defina o que ele faz sozinho e o que exige aprovação. Pergunte qual é o limite de valor sem aprovação humana, e se existe uma trilha de auditoria de cada ação.
+
+RAFA: Fechando o bloco: a Anthropic lançou o Claude Meetings, em beta para planos Team e Enterprise, em doze de novembro.
+
+CAMILA: Pelo que a central de ajuda diz, o Claude entra no Google Meet como participante visível, toma notas e responde perguntas. O ponto de atenção é o consentimento de quem está na reunião.
+
+RAFA: Participante visível. Pelo menos não fica escondido.
+
+CAMILA: Pois é, e isso já ajuda a conversa com a área jurídica.
+
+RAFA: Camila, uma curiosidade minha: dá para ver um fio comum nessas notícias de agentes?
+
+CAMILA: Dá. Todo mundo está colocando o agente dentro de algo que já existe, a reunião, o pagamento, o editor de código, o dado da empresa. Quanto mais perto do trabalho real, mais importante saber quem autorizou o quê.
+
+RAFA: E aí volta ao inventário de agentes, que a gente comentou semana passada.
+
+CAMILA: Volta. Ninguém governa o que não consegue contar.
+
+# Fechamento — O que levar para os clientes
+
+RAFA: Antes de fechar, um fio condutor: se eu tivesse que resumir a semana em uma frase, qual seria?
+
+CAMILA: A IA ficou mais cara de planejar e mais difícil de governar. Modelo novo, mas o que decide agora é custo, cadeia de fornecedores, segurança e quem responde pelo agente.
+
+RAFA: Então, o que um executive partner leva para uma conversa com o cliente?
+
+CAMILA: Quatro coisas. Primeira: preço promocional não é orçamento. Pergunte o que acontece com o projeto se o preço do modelo dobrar.
+
+CAMILA: Segunda: concentração. Fornecedores de modelo, de chips e até lideranças podem mudar de uma semana para outra. Pergunte qual é o plano de contingência e se o cliente depende de uma jurisdição só.
+
+CAMILA: Terceira: ferramentas de agentes fazem parte da cadeia de software, como a extensão maliciosa mostrou. Pergunte quem aprova extensões e quem varre os segredos nos registros dos agentes.
+
+CAMILA: Quarta: antes de multiplicar agentes, dicionário de negócio, identidade e limites de ação. Pergunte onde estão as definições oficiais e quanto o agente pode gastar ou decidir sozinho. Tudo isso é leitura editorial do programa, baseada em fontes públicas.
+
+RAFA: Bom treino, e até segunda que vem.
+
+CAMILA: Até lá! E lembre que todos os links estão nas notas do episódio, no aplicativo.
