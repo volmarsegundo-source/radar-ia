@@ -1,0 +1,199 @@
+RAFA: Oi, pessoal, eu sou o Rafa, e este é o Radar de IA e Tecnologia. Hoje é segunda, vinte e três de novembro, e a gente cobre a semana de dezesseis a vinte e três de novembro de dois mil e vinte e seis. Camila, como foi a semana?
+
+CAMILA: Oi, eu sou a Camila. Foi uma semana em que a bolsa e a tecnologia andaram de braços dados, você vai ver. Antes de tudo, o aviso de sempre: eu e o Rafa somos apresentadores virtuais, com vozes geradas por inteligência artificial.
+
+RAFA: E o combinado é o de sempre, né? Um bloco com a visão geral da IA no mundo, outro aprofundando engenharia de software e arquitetura empresarial. Cada conceito novo a Camila explica, e a gente cita a fonte de cada notícia. Os links ficam nas notas do episódio, no aplicativo.
+
+CAMILA: E quando a conversa pedir um recado para o cliente, eu entro com uma fala que começa com "Insight para levar ao cliente". Isso é leitura editorial do programa, tá? Não é a posição oficial de nenhuma empresa.
+
+RAFA: Combinado. E já tem gancho: semana passada a gente falou do roadshow do IPO da Anthropic e da saída do Jensen Huang da Nvidia. Pois é, os dois capítulos tiveram continuação.
+
+CAMILA: Tiveram, e movimentada. Bora.
+
+# Bloco 1 — Visão geral da IA no mundo
+
+RAFA: Vamos de IPO, então. A Anthropic estreou na Nasdaq na quinta, dezenove de novembro. Como foi?
+
+CAMILA: Pelo relato da Al Jazeera, com informação da Reuters, as ações foram vendidas a oitenta e três dólares. Lembra da faixa de setenta a setenta e oito que a gente citou semana passada? Passou por cima. A captação ficou perto de oitenta e um bilhões de dólares, e a imprensa chama de a maior abertura de capital da história.
+
+RAFA: E no primeiro dia, subiu?
+
+CAMILA: Abriu a cento e onze e cinquenta, mas fechou a noventa e sete e dezessete. Ainda acima do preço de venda, só que bem abaixo da abertura.
+
+RAFA: Montanha-russa.
+
+CAMILA: Um pouco. E tem um detalhe no prospecto: segundo a Al Jazeera, prejuízo líquido de cento e quatro bilhões de dólares nos nove primeiros meses do ano, e umas noventa páginas só de fatores de risco.
+
+RAFA: Cento e quatro bilhões? Calma aí.
+
+CAMILA: Pois é. Está no relato da Al Jazeera sobre o documento, então vale ler o original antes de repetir o número por aí. Mas o ponto é outro: o fornecedor de modelo virou empresa listada, com risco escrito e público.
+
+RAFA: Falando em risco, e a Nvidia? Teve balanço na terça, dezessete.
+
+CAMILA: Teve. Segundo a Fortune, que cita a própria empresa, a receita do trimestre foi de cento e quinze bilhões e oitocentos milhões de dólares, alta de cento e três por cento sobre um ano antes, com data center respondendo por mais de noventa por cento. E tudo isso sob comando interino da Colette Kress, depois da saída do Huang.
+
+RAFA: Número enorme, então. Por que o mercado ficou nervoso?
+
+CAMILA: Por causa do financiamento. Uma coluna de opinião do JoongAng Daily, de segunda, fala em financiamento circular. Sabe quando o fornecedor empresta ou garante crédito para o cliente, que depois usa o dinheiro para comprar do próprio fornecedor?
+
+RAFA: Tipo a padaria que financia o cliente para ele comprar mais pão.
+
+CAMILA: Exato, só que na escala de dezenas de bilhões. É coluna de opinião, com estimativas de analistas e do FMI, não é dado da Nvidia. Mas serve de alerta sobre quanto dessa expansão depende de crédito.
+
+RAFA: E tem uma frase da teleconferência que me chamou atenção, sobre o preço dos tokens.
+
+CAMILA: A Kress disse que o preço dos tokens caiu quase sessenta por cento desde maio, mas que o aluguel de GPU continua subindo. Alguns contratos antigos de chips Hopper foram renovados por até o dobro do preço. Isso é alegação da empresa, relatada pela Storm Media.
+
+RAFA: Peraí. O token fica mais barato e o aluguel do chip mais caro?
+
+CAMILA: São camadas diferentes. Token é o preço por unidade de texto que o modelo lê e escreve. GPU é a capacidade física por trás. Pense numa passagem aérea barata num voo cada vez mais lotado: o bilhete caiu, mas o avião continua cheio.
+
+RAFA: E o que o executive partner diz ao cliente?
+
+CAMILA: Insight para levar ao cliente: preço de token não é custo de IA. Pergunte se o orçamento separa preço unitário, volume e capacidade, e quem revisa quando qualquer um dos três muda.
+
+RAFA: E já que a gente falou em preço, os modelos novos da semana também mexem nisso.
+
+CAMILA: Mexem. Na terça, dezessete, a OpenAI lançou o GPT seis ponto dois, em duas versões: o Astra, para os trabalhos mais difíceis, a oito dólares por milhão de tokens de entrada e quarenta de saída, e o Sol, para o dia a dia, a dois e dez. A data de dezessete vem de agregadores, a página oficial que li não traz data.
+
+RAFA: E o desempenho?
+
+CAMILA: Os testes são da própria OpenAI, então pitada de sal. Ela diz que o Sol chega perto do Astra com uma fração do custo. E o que eu achei honesto é que a empresa admite que as proteções de segurança cibernética ficaram mais rígidas e podem atrapalhar pesquisa legítima de vulnerabilidades.
+
+RAFA: E o Google, não ficou parado.
+
+CAMILA: Não. Na quarta, dezoito, lançou o Gemini quatro Neon, um modelo intermediário, a três dólares de entrada e quinze de saída por milhão de tokens, com contexto de um milhão de tokens. O Google diz que custa trinta e dois por cento menos por tarefa que o Carbon, mas é conta da própria empresa.
+
+RAFA: Lembra que semana passada você falou que o preço promocional do Carbon dobra depois de trinta de novembro?
+
+CAMILA: Lembro, e o Neon entra justamente nesse meio. Moral da história: o preço muda rápido, e para os dois lados.
+
+RAFA: E tem mais uma que parece ficção científica: o Gemini no Mac.
+
+CAMILA: Na quinta, dezenove, o Google liberou no app para Mac o que chama de computer use, que é o agente usar o computador como uma pessoa: clica, digita, navega por menus e sites. Ele faz isso numa janela separada, o usuário escolhe quais apps ele pode tocar, pode pausar, e o Gemini pede aprovação antes de ações importantes.
+
+RAFA: Posso usar já?
+
+CAMILA: Por enquanto só nos Estados Unidos, em inglês, com plano pago e Mac com chip Apple Silicon. Os ganhos de tempo e de privacidade são alegação do Google, sem medição. Mas mostra para onde vai o agente: do chat para o desktop.
+
+# Bloco 2 — Aprofundamento: engenharia de software e arquitetura empresarial
+
+RAFA: Vamos para o aprofundamento. E começo com uma declaração forte: o Satya Nadella disse que o IDE desbotou em seis meses por causa do Claude Code?
+
+CAMILA: Foi em entrevista ao Pragmatic Engineer, publicada na segunda, dezesseis. O IDE, que é o editor onde o programador escreve código, segundo ele, meio que sumiu de cena em uns seis meses depois que o Claude Code apareceu. Hoje o Windows Latest repercutiu, mas aí já é interpretação do veículo.
+
+RAFA: Calma. Ele estava dizendo que a Microsoft errou?
+
+CAMILA: Ele admitiu que a empresa foi pega de surpresa, mas não decretou o fim do IDE para sempre. Disse até que pode haver um renascimento. O conselho dele foi manter o harness, a memória e o modelo desacoplados, e tratar agentes como um risco interno.
+
+RAFA: Harness. Traduz.
+
+CAMILA: É o conjunto de ferramentas e controles em volta do modelo que transforma ele em agente de código. Pense no modelo como o motor e no harness como o carro inteiro: volante, freio, painel.
+
+RAFA: Entendi. E por que desacoplar?
+
+CAMILA: Para você trocar o motor sem comprar outro carro. Se tudo estiver amarrado, trocar de modelo vira projeto.
+
+RAFA: Então, o recado para o cliente?
+
+CAMILA: Insight para levar ao cliente: não deixe memória, ferramentas e modelo amarrados a um único fornecedor. Pergunte o que precisaria ser refeito se a equipe trocasse de modelo para uma tarefa amanhã.
+
+RAFA: E o VS Code já está nesse caminho, né? Saiu a versão cento e quarenta e sete na quarta, dezoito.
+
+CAMILA: Saiu. Tem roteador de modelos, ainda experimental, que escolhe o modelo certo por tarefa, a partir de regras escritas em arquivo. Tem envio agendado de pedidos para agentes e habilidades via MCP ativadas por padrão. E o Browser Use, em prévia, em que o agente controla o navegador.
+
+RAFA: Roteador de modelos soa técnico.
+
+CAMILA: É simples. É um porteiro que olha o pedido e decide: essa tarefa é fácil, vai para o modelo barato; essa é difícil, vai para o caro. A ideia é pagar pelo que a tarefa pede.
+
+RAFA: Faz sentido. Mas tem pegadinha, não tem?
+
+CAMILA: Tem uma nas notas da versão. Administradores podem liberar os harnesses do Claude e do Codex dentro do VS Code, mas essas sessões rodam sem os controles gerenciados de permissão, sandbox, MCP e plugins do Copilot. O próprio aviso está nas notas.
+
+RAFA: Ou seja, abriu a porta, mas sem a fechadura.
+
+CAMILA: Isso. E lembra da extensão maliciosa do Claude Code, que a gente comentou semana passada?
+
+RAFA: Lembro, a do marketplace da Cursor.
+
+CAMILA: A lição é a mesma: o que você permite instalar e rodar no ambiente do desenvolvedor faz parte da cadeia de software.
+
+RAFA: Então, qual é o recado?
+
+CAMILA: Insight para levar ao cliente: decida quais agentes de código entram e com quais controles. Pergunte quais ferramentas estão liberadas hoje e que regras de permissão e de isolamento valem para cada uma.
+
+RAFA: E o Browser Use e o Gemini no Mac têm o mesmo espírito, não têm?
+
+CAMILA: Têm. Os dois dão ao agente o controle de interface. É ótimo para automatizar teste e tarefa repetitiva, mas o alcance precisa ser limitado.
+
+RAFA: Quais apps, quais dados.
+
+CAMILA: Insight para levar ao cliente: quando o agente usa o computador, delimite o alcance antes de ligar. Pergunte quais aplicativos e dados ele pode tocar, e qual ação exige aprovação humana.
+
+RAFA: Mudando para arquitetura. Teve Ignite, da Microsoft, e muita coisa de identidade de agentes.
+
+CAMILA: Teve. Em dezessete de novembro, a Microsoft anunciou novidades no Entra, que é o serviço de identidade dela. Agentes ganham identidade própria, o Agent ID, como um crachá com dono, permissões e registro de auditoria.
+
+RAFA: Crachá para robô.
+
+CAMILA: Quase isso. A Microsoft diz ter descoberto sessenta tipos de agentes locais, incluindo Claude Code, Codex e Copilot CLI. Estende o acesso privilegiado sob demanda para agentes, e por padrão desativa identidade de agente inativa por sessenta dias. Tem também um firewall de MCP, em prévia, que controla quais ferramentas o agente chama.
+
+RAFA: E tudo isso é da própria Microsoft.
+
+CAMILA: Tudo. E boa parte está em prévia, não disponível geral. Mas a mensagem é clara: governança de agente virou recurso de plataforma.
+
+RAFA: Lembra daquela frase da Camila de semana passada, que ninguém governa o que não consegue contar?
+
+CAMILA: Ha, a minha frase. Pois a Microsoft está tentando justamente fazer o censo dos agentes.
+
+RAFA: E o que o executive partner leva?
+
+CAMILA: Insight para levar ao cliente: agente precisa de identidade, dono e prazo de validade. Pergunte quantos agentes existem hoje, quem é dono de cada um e quem os desativa quando param de ser usados.
+
+RAFA: Também no Ignite tem a Microsoft com a SAP. O que mudou?
+
+CAMILA: Em dezessete de novembro, a Microsoft publicou que servidores MCP e habilidades deixam o Copilot do Microsoft 365 ler e escrever no ERP da SAP, nas versões RISE, S/4HANA e ECC. O Joule, da SAP, se integra ao Copilot, e o SAP AI Agent Hub trabalha com o Agent 365 para os agentes se descobrirem. Vários itens estão em prévia limitada.
+
+RAFA: Ou seja, um agente da Microsoft mexendo no coração financeiro da empresa.
+
+CAMILA: Exato. E é aí que a segurança aperta. Na quinta, dezenove, a fundação AAIF publicou um artigo, de autores ligados à Hitachi, recomendando aplicar ao protocolo A dois A, que conecta agentes de empresas diferentes, um perfil de segurança equivalente ao do MCP, incluindo O Auth dois ponto um.
+
+RAFA: Auth, o que é?
+
+CAMILA: É o padrão que decide quem pode acessar o quê, por meio de uma ficha chamada token. O artigo insiste que o token valha só para o destino previsto, para ninguém reaproveitar a ficha em outro lugar. É recomendação de blog, não é norma oficial.
+
+RAFA: Aí a conta fecha: padrão aberto ajuda, mas não resolve sozinho.
+
+CAMILA: Semana passada falei isso do MCP e do A dois A. O artigo da AAIF é a confirmação de que as lacunas de autorização existem.
+
+RAFA: Qual é o recado?
+
+CAMILA: Insight para levar ao cliente: a fronteira entre sistemas é onde a autorização costuma falhar. Pergunte como credenciais e escopo passam de um agente para os sistemas centrais, e onde fica a trilha de auditoria.
+
+RAFA: Para fechar o bloco, um artigo de opinião da CIO, de segunda, sobre orçamento.
+
+CAMILA: Ele cita estudos de terceiros, que a gente não verificou. Um da IBM, segundo o qual oitenta e cinco por cento dos líderes não têm visão em tempo real do gasto com IA. Outro da Deloitte, em que quarenta por cento deixam a IA executar decisões sem aprovação humana, pelo menos em parte. E um da Cloud Security Alliance, em que oitenta e dois por cento encontraram agentes que não conheciam.
+
+RAFA: Esses números juntos são bem coerentes com o que a gente viu hoje.
+
+CAMILA: São. Custo e inventário de agentes são as duas lacunas mais citadas. E mostram por que o preço do token, sozinho, não conta a história.
+
+RAFA: Camila, se você tivesse que dar um fio condutor da semana?
+
+CAMILA: A IA ficou mais madura como negócio e mais cobrada como risco. Fornecedor listado em bolsa, agente com crachá, e gente perguntando quem paga a conta da capacidade.
+
+# Fechamento — O que levar para os clientes
+
+RAFA: Então, Camila, o que um executive partner leva para uma conversa com o cliente?
+
+CAMILA: Quatro coisas. Primeira: custo de IA é preço, volume e capacidade, não só preço de token. Pergunte quem revisa o orçamento quando um desses muda.
+
+CAMILA: Segunda: não amarre modelo, memória e ferramentas a um único fornecedor. Pergunte o que precisaria ser refeito se a equipe trocasse de modelo amanhã.
+
+CAMILA: Terceira: agente precisa de identidade, dono e prazo. Pergunte quantos agentes existem hoje e quem pode desligar cada um, inclusive os agentes de código que desenvolvedores instalam por conta própria.
+
+CAMILA: Quarta: a fronteira entre sistemas é onde a autorização falha, principalmente quando um agente alcança o ERP. Pergunte como o escopo passa de um sistema para outro e onde está a trilha de auditoria. Tudo isso é leitura editorial do programa, baseada em fontes públicas.
+
+RAFA: Bom treino, e até segunda que vem.
+
+CAMILA: Até lá! E lembre que todos os links estão nas notas do episódio, no aplicativo.
